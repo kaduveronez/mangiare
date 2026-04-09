@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import PageHero from '../components/PageHero';
+import fotoEquipe from '../assets/foto-equipe.jpg';
+import fotoCozinha from '../assets/foto-cozinha.jpg';
+import fotoPreparo from '../assets/foto-preparo.jpg';
+import fotoEntrega from '../assets/foto-entrega.jpg';
 
 function Historia() {
   const ref = useFadeInUp<HTMLDivElement>();
@@ -21,10 +25,15 @@ function Historia() {
               para trabalhadores de Joinville e região. Ao longo das décadas, crescemos e nos consolidamos como referência
               no setor de refeições transportadas no norte de Santa Catarina.
             </p>
+            <p className="sobre__text">
+              Hoje, atendemos mais de 10 empresas diariamente, com uma equipe dedicada que prepara cada refeição com
+              o mesmo cuidado e carinho de sempre. Nossa cozinha industrial segue rigorosos padrões de higiene e
+              segurança alimentar, supervisionados por nutricionista.
+            </p>
             <span className="sobre__badge">30+ anos de experiência</span>
           </div>
           <div className="fade-in-up" style={{ transitionDelay: '100ms' }}>
-            <div className="sobre__image-placeholder" aria-label="Equipe Mangiare Refeições">Foto da equipe</div>
+            <img src={fotoEquipe} alt="Equipe Mangiare Refeições na cozinha industrial" className="sobre__image" loading="lazy" width={960} height={720} />
           </div>
         </div>
       </div>
@@ -42,14 +51,21 @@ function Missao() {
           <p className="missao__label">MISSÃO</p>
           <div className="missao__line" />
           <p className="missao__text">
-            Nossa missão é ser a cozinha industrial de referência no setor de refeições transportadas na região norte de Santa Catarina.
+            Nossa missão é ser a cozinha industrial de referência no setor de refeições transportadas na região norte de Santa Catarina,
+            proporcionando alimentação saudável, saborosa e segura para os colaboradores das empresas que confiam em nós.
           </p>
         </div>
       </div>
       <div className="missao__photos">
-        <div className="missao__photo">Foto 1</div>
-        <div className="missao__photo">Foto 2</div>
-        <div className="missao__photo">Foto 3</div>
+        <div className="missao__photo">
+          <img src={fotoCozinha} alt="Cozinha industrial Mangiare" loading="lazy" width={960} height={720} />
+        </div>
+        <div className="missao__photo">
+          <img src={fotoPreparo} alt="Preparo de refeições" loading="lazy" width={960} height={720} />
+        </div>
+        <div className="missao__photo">
+          <img src={fotoEntrega} alt="Entrega de refeições em Hot Box" loading="lazy" width={960} height={720} />
+        </div>
       </div>
     </section>
   );
@@ -58,9 +74,9 @@ function Missao() {
 function Valores() {
   const ref = useFadeInUp<HTMLDivElement>();
   const valores = [
-    { title: 'Qualidade', text: 'Ingredientes selecionados e preparo artesanal em cada refeição que servimos.' },
-    { title: 'Pontualidade', text: 'Entregas no horário certo, todos os dias, incluindo fins de semana e feriados.' },
-    { title: 'Segurança Alimentar', text: 'Rigorosas práticas de higiene e controle supervisionadas por nutricionista.' },
+    { title: 'Qualidade', text: 'Ingredientes selecionados e preparo artesanal em cada refeição. Nossos cardápios são desenvolvidos por nutricionista, garantindo equilíbrio nutricional e sabor em todos os pratos.' },
+    { title: 'Pontualidade', text: 'Entregas no horário certo, todos os dias, incluindo fins de semana e feriados. Nossa frota própria e motoristas capacitados asseguram que as refeições chegam sempre no momento combinado.' },
+    { title: 'Segurança Alimentar', text: 'Rigorosas práticas de higiene e controle de qualidade supervisionadas por nutricionista. Seguimos todas as normas sanitárias e realizamos visitas quinzenais de acompanhamento.' },
   ];
   return (
     <section className="diferenciais">

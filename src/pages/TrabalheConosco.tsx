@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import PageHero from '../components/PageHero';
 import FormField from '../components/FormField';
+import fotoRefeitorio1 from '../assets/foto-refeitorio-1.jpg';
+import fotoRefeitorio2 from '../assets/foto-refeitorio-2.jpg';
+import fotoRefeitorio3 from '../assets/foto-refeitorio-3.jpg';
+import fotoRefeitorio4 from '../assets/foto-refeitorio-4.jpg';
 
 function Cultura() {
   const ref = useFadeInUp<HTMLDivElement>();
@@ -12,11 +16,15 @@ function Cultura() {
           <h2 className="sobre__title">Faça parte da nossa equipe</h2>
           <p className="sobre__text">
             Na Mangiare, acreditamos que grandes refeições são feitas por grandes pessoas. Somos uma empresa familiar
-            que valoriza o trabalho em equipe, o respeito e o compromisso com a qualidade.
+            com mais de 30 anos de história, que valoriza o trabalho em equipe, o respeito e o compromisso com a qualidade.
           </p>
           <p className="sobre__text">
-            Se você é apaixonado por culinária, logística ou administração e quer fazer parte de uma equipe dedicada,
-            gostaríamos de conhecer você. Preencha o formulário abaixo e entraremos em contato.
+            Nosso ambiente de trabalho é acolhedor e colaborativo. Investimos no desenvolvimento dos nossos colaboradores
+            e oferecemos oportunidades de crescimento nas áreas de cozinha, logística e administração.
+          </p>
+          <p className="sobre__text">
+            Se você é apaixonado por culinária, busca estabilidade e quer fazer parte de uma equipe dedicada que
+            alimenta milhares de trabalhadores todos os dias, gostaríamos de conhecer você.
           </p>
         </div>
       </div>
@@ -24,17 +32,19 @@ function Cultura() {
   );
 }
 
+const galeriaFotos = [fotoRefeitorio1, fotoRefeitorio2, fotoRefeitorio3, fotoRefeitorio4];
+const galeriaAlt = ['Refeitório corporativo', 'Buffet de refeições', 'Cozinha industrial com marmitas', 'Ingredientes frescos na cozinha'];
+
 function GaleriaRefeitorio() {
   const ref = useFadeInUp<HTMLDivElement>();
-  const colors = ['#C9B5A0', '#A67C52', '#8B5A3C', '#4A6B5A'];
   return (
     <section className="sobre">
       <div className="container" ref={ref}>
         <h2 className="section-title fade-in-up" style={{ textAlign: 'center', marginBottom: 40, color: 'var(--color-bordo)' }}>Nosso ambiente</h2>
         <div className="galeria__grid galeria__grid--4">
-          {colors.map((c, i) => (
-            <div key={i} className="galeria__item fade-in-up" style={{ transitionDelay: `${i * 80}ms`, background: c }}>
-              Foto {i + 1}
+          {galeriaFotos.map((foto, i) => (
+            <div key={i} className="galeria__item fade-in-up" style={{ transitionDelay: `${i * 80}ms` }}>
+              <img src={foto} alt={galeriaAlt[i]} loading="lazy" width={800} height={600} />
             </div>
           ))}
         </div>
@@ -59,6 +69,7 @@ function FormVagas() {
       <div className="container" ref={ref}>
         <div className="servicos__header fade-in-up">
           <h2 className="servicos__title">Envie sua candidatura</h2>
+          <p className="servicos__subtitle">Preencha o formulário abaixo com seus dados</p>
         </div>
         <form className="contato__form contato__form--centered fade-in-up" onSubmit={handleSubmit}>
           <div className="form-row">
