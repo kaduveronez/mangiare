@@ -1,53 +1,96 @@
 
 
-## Plano: Protótipo Mangiare Refeições — Site Institucional + Blog
+## Plano: Transformar Single-Page em Site Multi-Página
 
-Protótipo visual completo em React/Vite no Lovable, seguindo fielmente o design system e a estrutura de 8 páginas + blog documentados.
-
----
-
-### Fase 1 — Fundação (Design System + Layout Global)
-
-1. **Configurar design tokens** — Paleta (bordô, verde, dourado, creme, preto, marrom-escuro), tipografia (Playfair Display + Sofia Sans Semi Condensed via Google Fonts), espaçamentos, bordas e sombras no `index.css` e `tailwind.config.ts`
-2. **Navbar global** — Logo creme/dourado, links (Home, Quem Somos, Soluções com dropdown, Blog, Contato), botão CTA "Pedir Cotação" dourado. Transparente → fundo sólido `#0A0A0A` após 80px scroll. Mobile: hamburguer drawer
-3. **Footer global** — Logo creme, tagline, links de navegação, redes sociais (Instagram, Facebook), crédito Kadu Veronez, copyright
-4. **Componentes reutilizáveis** — PageHero (variantes bordô/verde/dourado), BotãoPrimário, CardDiferencial, CardServiço, CardBlogPost, FormGroup (variantes fundo claro/escuro), CTAWhatsApp, animação fade-in-up com IntersectionObserver + respeito a `prefers-reduced-motion`
+O projeto atual é uma landing page single-page com 7 seções e navegação por âncoras. O escopo real exige 10 rotas separadas com React Router. O design system (CSS, tokens, fontes) já está correto e será preservado integralmente.
 
 ---
 
-### Fase 2 — Páginas Institucionais
+### Arquitetura
 
-5. **Home (`/`)** — HeroSection (bg bordô, logo grande, tagline Playfair, CTA dourado WhatsApp), SobreResumo, ServicosCards (2 cards linkando para sub-páginas), DiferenciaisGrid (6 itens resumidos), ClientesLogoWall (10 logos placeholder), FormOrcamento (nome, empresa, e-mail, telefone, mensagem com validação), CTAWhatsApp
-6. **Quem Somos (`/quem-somos`)** — PageHero, HistoriaBloco (30+ anos narrativa), MissaoBloco (faixa dourada), ValoresGrid, EquipeFoto
-7. **Soluções Hub (`/solucoes`)** — PageHero, 2 SolucaoCards grandes (Restaurante & Marmitas + Refeições Corporativas), EntregaBloco (logística, frota, Hot Box)
-8. **Restaurante & Marmitas (`/solucoes/restaurante-marmitas`)** — PageHero, DescricaoServico, GaleriaFotos com lightbox (prev/next, lazy loading), CardapioDestaques, CTACotacao
-9. **Refeições Corporativas (`/solucoes/refeicoes-corporativas`)** — PageHero, ArgumentoB2B, DiferenciaisCompletos (6 itens expandidos), ClientesLogoWall, FormOrcamentoB2B (empresa, CNPJ, responsável, nº refeições, e-mail, telefone), CTAWhatsApp
-10. **Contato (`/contato`)** — PageHero, FormContato (nome, e-mail, assunto, mensagem), InfoContato (WhatsApp, e-mail, Instagram, endereço com ícones), RedesSociais, MapaLocalizacao (embed Google Maps — R. Minas Gerais, 5300)
-11. **Trabalhe Conosco (`/trabalhe-conosco`)** — PageHero, CulturaBloco, GaleriaRefeitórios, FormVagas (nome, e-mail, telefone, área de interesse, mensagem)
-12. **Política de Privacidade (`/politica-de-privacidade`)** — TextoLegal (LGPD), ContatoDPO
+```text
+src/
+├── components/
+│   ├── Navbar.tsx          (global, com dropdown Soluções + React Router links)
+│   ├── Footer.tsx          (global, links para todas as rotas)
+│   ├── PageHero.tsx        (reutilizável: variantes bordô/verde/dourado)
+│   ├── ScrollToTop.tsx     (scroll to top on route change)
+│   ├── DiferenciaisGrid.tsx (reutilizado em Home e Corporativas)
+│   ├── ClientesLogoWall.tsx (reutilizado em Home e Corporativas)
+│   └── FormField.tsx       (campo de formulário reutilizável)
+├── pages/
+│   ├── Home.tsx
+│   ├── QuemSomos.tsx
+│   ├── Solucoes.tsx
+│   ├── RestauranteMarmitas.tsx
+│   ├── RefeicoesCorporativas.tsx
+│   ├── Contato.tsx
+│   ├── TrabalheConosco.tsx
+│   ├── PoliticaPrivacidade.tsx
+│   ├── Blog.tsx
+│   ├── BlogPost.tsx
+│   └── NotFound.tsx
+├── data/
+│   └── blogPosts.ts        (6 posts mockados)
+├── styles/
+│   └── mangiare.css        (expandido com novos estilos)
+└── App.tsx                  (BrowserRouter + todas as rotas)
+```
 
 ---
 
-### Fase 3 — Blog
+### Etapas de Implementação
 
-13. **Blog Listagem (`/blog`)** — BlogHero, FiltroCategoria (navegação por categorias), PostCardGrid (9 posts por página com paginação, dados mockados), Sidebar opcional (busca, posts recentes, categorias)
-14. **Blog Artigo (`/blog/:slug`)** — ArtigoHeader (título, data, autor, categoria, imagem de capa), ArtigoCorpo (layout editorial com headings, imagens, listas, citações), PostsRelacionados (3 posts da mesma categoria)
+**1. Componentes Globais**
+- Extrair `Navbar` e `Footer` de `Index.tsx` para componentes separados
+- Navbar: trocar `<a href="#ancora">` por `<Link to="/rota">`, adicionar dropdown "Soluções" com sub-links (Restaurante & Marmitas, Refeições Corporativas)
+- Footer: links React Router para todas as 8 páginas + Facebook
+- Criar `ScrollToTop.tsx` (useEffect com window.scrollTo no useLocation)
+- Criar `PageHero` com prop `variant` (bordo/verde/dourado) e `title`
+
+**2. Componentes Reutilizáveis**
+- `DiferenciaisGrid` — extrair os 6 cards (usado na Home e em Refeições Corporativas)
+- `ClientesLogoWall` — extrair os 10 logos (usado na Home e em Refeições Corporativas)
+- `FormField` — input/textarea/select com variante claro/escuro
+
+**3. Página Home (`/`)**
+- Manter Hero, Sobre (com botão "Conheça nossa história" → `/quem-somos`), Serviços (2 cards grandes linkando para sub-páginas em vez de 3 cards), Diferenciais, Clientes, Formulário de orçamento (nome, empresa, e-mail, telefone, mensagem com preventDefault + alert) + grid de contatos
+
+**4. Quem Somos (`/quem-somos`)**
+- PageHero bordô + história expandida + faixa missão dourada + valores (3 cards) + foto equipe
+
+**5. Soluções Hub (`/solucoes`)**
+- PageHero verde + 2 cards grandes lado a lado + seção entrega (frota, Hot Box)
+
+**6. Restaurante & Marmitas (`/solucoes/restaurante-marmitas`)**
+- PageHero bordô + descrição serviço + galeria 6 fotos com lightbox (modal prev/next) + CTA WhatsApp
+
+**7. Refeições Corporativas (`/solucoes/refeicoes-corporativas`)**
+- PageHero verde + argumento B2B + DiferenciaisGrid + ClientesLogoWall + formulário B2B (empresa, CNPJ, responsável, nº refeições, e-mail, telefone) + CTA WhatsApp
+
+**8. Contato (`/contato`)**
+- PageHero bordô + layout 2 colunas (formulário claro + info contato) + placeholder mapa
+
+**9. Trabalhe Conosco (`/trabalhe-conosco`)**
+- PageHero dourado (texto verde) + cultura + galeria 4 fotos + formulário vagas (fundo verde escuro)
+
+**10. Política de Privacidade (`/politica-de-privacidade`)**
+- PageHero bordô + texto legal LGPD (max-width 800px, fundo branco)
+
+**11. Blog Listagem (`/blog`)**
+- PageHero verde + filtro categorias (pills) + grid 6 cards mockados (3×2 desktop) + botão "Carregar mais"
+
+**12. Blog Artigo (`/blog/:slug`)**
+- Breadcrumb + header editorial + corpo Lorem Ipsum + 3 posts relacionados
+
+**13. CSS Expandido**
+- Adicionar estilos para: `.page-hero` variantes, formulários (claro e escuro), `.card-post`, lightbox modal, `.nav-dropdown`, layout editorial do blog, página de privacidade
 
 ---
 
-### Fase 4 — Comportamentos e Polimento
-
-15. **Formulários funcionais** — Validação client-side (campos obrigatórios, e-mail válido), feedback visual de sucesso, todos apontando para `mailto:mangiaree.refeicoes@gmail.com` (simulado no protótipo)
-16. **Links externos** — WhatsApp (`wa.me/5547996266842`), Instagram, Facebook, mailto — todos com `target="_blank"` e `aria-label`
-17. **Responsividade completa** — Mobile-first de 320px a 1440px, breakpoints em 640/768/1024/1280px
-18. **Acessibilidade** — `aria-label` em botões, `alt` descritivo em imagens, contraste WCAG AA (4.5:1)
-
----
-
-### Notas
-
-- Imagens usarão placeholders (Unsplash de comida/restaurante) — conteúdo real será aplicado no WordPress
-- Blog usa dados mockados — no WordPress será alimentado pelo CMS nativo
-- Formulários simulam envio (toast de confirmação) — no WordPress usarão plugin de forms
-- Logos usarão placeholders SVG com as cores corretas da marca
+### O que NÃO muda
+- Design system (cores, fontes, tokens, espaçamentos) — preservado 100%
+- Hook `useIntersectionObserver` — reutilizado em todas as páginas
+- Classe `.fade-in-up` — aplicada em todas as seções e cards
+- Zero backend — formulários usam preventDefault + alert
 
