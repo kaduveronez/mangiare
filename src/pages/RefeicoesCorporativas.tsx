@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logoCreme from '../assets/logo-creme-watermark.png';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import PageHero from '../components/PageHero';
 import DiferenciaisGrid from '../components/DiferenciaisGrid';
@@ -88,7 +89,7 @@ export default function RefeicoesCorporativas() {
       <PageHero title="Refeições Corporativas" variant="verde" />
       <ArgumentoB2B />
       <section className="diferenciais">
-        <div className="diferenciais__watermark" aria-hidden="true">M</div>
+        <img src={logoCreme} alt="" className="diferenciais__watermark" aria-hidden="true" />
         <div className="container">
           <div className="diferenciais__header fade-in-up">
             <p className="section-label diferenciais__label">DIFERENCIAIS</p>

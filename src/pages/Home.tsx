@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import logoAmarelo from '../assets/logo-amarelo.png';
+import logoCreme from '../assets/logo-creme-watermark.png';
 import DiferenciaisGrid from '../components/DiferenciaisGrid';
 import ClientesLogoWall from '../components/ClientesLogoWall';
 import FormField from '../components/FormField';
@@ -96,7 +97,7 @@ function DiferenciaisSection() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
     <section className="diferenciais" id="diferenciais">
-      <div className="diferenciais__watermark" aria-hidden="true">M</div>
+      <img src={logoCreme} alt="" className="diferenciais__watermark" aria-hidden="true" />
       <div className="container" ref={ref}>
         <div className="diferenciais__header fade-in-up">
           <p className="section-label diferenciais__label">DIFERENCIAIS</p>
