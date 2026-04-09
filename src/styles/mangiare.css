@@ -432,6 +432,7 @@ ul, ol { list-style: none; }
 }
 .hero__scroll {
   position: absolute;
+  z-index: 2;
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
