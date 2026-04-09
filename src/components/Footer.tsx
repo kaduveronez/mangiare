@@ -22,8 +22,8 @@ export default function Footer() {
             {LINKS.map(l => <Link key={l.to} to={l.to}>{l.label}</Link>)}
           </div>
           <div className="footer__social">
-            <a href="https://instagram.com/mangiare.refeicoes" target="_blank" rel="noopener noreferrer" aria-label="Instagram Mangiare">📸 Instagram</a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Mangiare">📘 Facebook</a>
+            <a href="https://instagram.com/mangiare.refeicoes" target="_blank" rel="noopener noreferrer" aria-label="Instagram Mangiare"><i className="fa-brands fa-instagram" /> Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Mangiare"><i className="fa-brands fa-facebook" /> Facebook</a>
           </div>
           <div className="footer__credit">
             Desenvolvido por{' '}

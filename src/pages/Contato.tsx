@@ -30,19 +30,19 @@ function ContatoForm() {
             <h3 className="sobre__title" style={{ fontSize: 28, marginBottom: 24 }}>Informações de contato</h3>
             <div className="contato-page__items">
               <a href="tel:+5547996266842" className="contato__item contato__item--light" aria-label="Telefone">
-                <span className="contato__icon">📱</span><span className="contato__info contato__info--dark">(47) 99626-6842</span>
+                <span className="contato__icon"><i className="fa-solid fa-phone" /></span><span className="contato__info contato__info--dark">(47) 99626-6842</span>
               </a>
               <a href="mailto:mangiaree.refeicoes@gmail.com" className="contato__item contato__item--light" aria-label="E-mail">
-                <span className="contato__icon">📧</span><span className="contato__info contato__info--dark">mangiaree.refeicoes@gmail.com</span>
+                <span className="contato__icon"><i className="fa-solid fa-envelope" /></span><span className="contato__info contato__info--dark">mangiaree.refeicoes@gmail.com</span>
               </a>
               <a href="https://instagram.com/mangiare.refeicoes" target="_blank" rel="noopener noreferrer" className="contato__item contato__item--light" aria-label="Instagram">
-                <span className="contato__icon">📸</span><span className="contato__info contato__info--dark">@mangiare.refeicoes</span>
+                <span className="contato__icon"><i className="fa-brands fa-instagram" /></span><span className="contato__info contato__info--dark">@mangiare.refeicoes</span>
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="contato__item contato__item--light" aria-label="Facebook">
-                <span className="contato__icon">📘</span><span className="contato__info contato__info--dark">Facebook</span>
+                <span className="contato__icon"><i className="fa-brands fa-facebook" /></span><span className="contato__info contato__info--dark">Facebook</span>
               </a>
               <div className="contato__item contato__item--light">
-                <span className="contato__icon">📍</span><span className="contato__info contato__info--dark">R. Minas Gerais, 5300, Morro do Meio, Joinville – SC</span>
+                <span className="contato__icon"><i className="fa-solid fa-location-dot" /></span><span className="contato__info contato__info--dark">R. Minas Gerais, 5300, Morro do Meio, Joinville – SC</span>
               </div>
             </div>
             <div className="mapa-placeholder" aria-label="Localização no mapa">Google Maps</div>
