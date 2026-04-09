@@ -11,7 +11,17 @@ function Hero() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
     <section className="hero" id="inicio">
-      <div ref={ref} className="fade-in-up" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div className="hero__video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/5t7xU8pWbso?autoplay=1&mute=1&loop=1&playlist=5t7xU8pWbso&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+          title="Mangiare Refeições — vídeo de fundo"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          className="hero__video"
+        />
+      </div>
+      <div className="hero__overlay" />
+      <div ref={ref} className="fade-in-up hero__content">
         <div className="hero__logo">
           <div className="hero__logo-placeholder" aria-label="Logo Mangiare Refeições">M</div>
         </div>
@@ -64,13 +74,13 @@ function ServicosHome() {
         </div>
         <div className="servicos__grid servicos__grid--2col">
           <Link to="/solucoes/restaurante-marmitas" className="card-servico-big fade-in-up">
-            <div className="card-servico-big__img" aria-label="Restaurante e Marmitas">🍽️</div>
+            <div className="card-servico-big__img" aria-label="Restaurante e Marmitas"><i className="fa-solid fa-utensils" /></div>
             <h3 className="card-servico-big__title">Restaurante & Marmitas</h3>
             <p className="card-servico-big__text">Refeições de qualidade para o dia a dia, com cardápio variado desenvolvido por nutricionista.</p>
             <span className="card-servico-big__link">Saiba mais →</span>
           </Link>
           <Link to="/solucoes/refeicoes-corporativas" className="card-servico-big fade-in-up" style={{ transitionDelay: '100ms' }}>
-            <div className="card-servico-big__img" aria-label="Refeições Corporativas">🏢</div>
+            <div className="card-servico-big__img" aria-label="Refeições Corporativas"><i className="fa-solid fa-building" /></div>
             <h3 className="card-servico-big__title">Refeições Corporativas</h3>
             <p className="card-servico-big__text">Soluções completas de alimentação para empresas, a partir de 50 refeições por pedido.</p>
             <span className="card-servico-big__link">Saiba mais →</span>
@@ -141,16 +151,16 @@ function FormularioContato() {
           </form>
           <div className="contato__info-col fade-in-up" style={{ transitionDelay: '100ms' }}>
             <a href="tel:+5547996266842" className="contato__item" aria-label="Ligar para Mangiare">
-              <span className="contato__icon">📱</span><span className="contato__info">(47) 99626-6842</span>
+              <span className="contato__icon"><i className="fa-solid fa-phone" /></span><span className="contato__info">(47) 99626-6842</span>
             </a>
             <a href="mailto:mangiaree.refeicoes@gmail.com" className="contato__item" aria-label="E-mail Mangiare">
-              <span className="contato__icon">📧</span><span className="contato__info">mangiaree.refeicoes@gmail.com</span>
+              <span className="contato__icon"><i className="fa-solid fa-envelope" /></span><span className="contato__info">mangiaree.refeicoes@gmail.com</span>
             </a>
             <a href="https://instagram.com/mangiare.refeicoes" target="_blank" rel="noopener noreferrer" className="contato__item" aria-label="Instagram Mangiare">
-              <span className="contato__icon">📸</span><span className="contato__info">@mangiare.refeicoes</span>
+              <span className="contato__icon"><i className="fa-brands fa-instagram" /></span><span className="contato__info">@mangiare.refeicoes</span>
             </a>
             <div className="contato__item">
-              <span className="contato__icon">📍</span><span className="contato__info">R. Minas Gerais, 5300, Morro do Meio, Joinville - SC</span>
+              <span className="contato__icon"><i className="fa-solid fa-location-dot" /></span><span className="contato__info">R. Minas Gerais, 5300, Morro do Meio, Joinville - SC</span>
             </div>
           </div>
         </div>
