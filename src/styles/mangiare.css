@@ -572,7 +572,7 @@ ul, ol { list-style: none; }
   box-shadow: 0 8px 32px rgba(0,0,0,0.30);
   transform: translateY(-4px);
 }
-.card-servico__icon { font-size: 40px; margin-bottom: 16px; }
+.card-servico__icon { font-size: 40px; margin-bottom: 16px; color: var(--color-dourado); }
 .card-servico__title {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
