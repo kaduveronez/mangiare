@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logoAmarelo from '../assets/logo-amarelo.png';
 
 const WHATSAPP_URL = 'https://wa.me/5547996266842?text=Ol%C3%A1!+Gostaria+de+solicitar+uma+cota%C3%A7%C3%A3o.';
 
@@ -35,7 +36,7 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <Link to="/" className="navbar__logo">
-            Mangiare<span>refeições</span>
+            <img src={logoAmarelo} alt="Mangiare Refeições" className="navbar__logo-img" />
           </Link>
           <div className="navbar__links">
             {NAV_LINKS.map(l => (

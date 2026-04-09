@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
+import logoAmarelo from '../assets/logo-amarelo.png';
+import logoCreme from '../assets/logo-creme-watermark.png';
 import DiferenciaisGrid from '../components/DiferenciaisGrid';
 import ClientesLogoWall from '../components/ClientesLogoWall';
 import FormField from '../components/FormField';
@@ -23,7 +25,7 @@ function Hero() {
       <div className="hero__overlay" />
       <div ref={ref} className="fade-in-up hero__content">
         <div className="hero__logo">
-          <div className="hero__logo-placeholder" aria-label="Logo Mangiare Refeições">M</div>
+          <img src={logoAmarelo} alt="Logo Mangiare Refeições" className="hero__logo-img" />
         </div>
         <h1 className="hero__tagline">Sabor, nutrição e segurança alimentar para o seu time</h1>
         <p className="hero__subtitle">Refeições transportadas com qualidade e pontualidade para empresas em Joinville e região</p>
@@ -95,7 +97,7 @@ function DiferenciaisSection() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
     <section className="diferenciais" id="diferenciais">
-      <div className="diferenciais__watermark" aria-hidden="true">M</div>
+      <img src={logoCreme} alt="" className="diferenciais__watermark" aria-hidden="true" />
       <div className="container" ref={ref}>
         <div className="diferenciais__header fade-in-up">
           <p className="section-label diferenciais__label">DIFERENCIAIS</p>
