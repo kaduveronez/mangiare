@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import logoAmarelo from '../assets/logo-amarelo.png';
 import logoCreme from '../assets/logo-creme-watermark.png';
+import fotoEquipe from '../assets/foto-equipe.jpg';
+import fotoPrato1 from '../assets/foto-prato-1.jpg';
+import fotoPrato2 from '../assets/foto-prato-2.jpg';
 import DiferenciaisGrid from '../components/DiferenciaisGrid';
 import ClientesLogoWall from '../components/ClientesLogoWall';
 import FormField from '../components/FormField';
@@ -52,13 +55,17 @@ function SobreResumo() {
               especializada no fornecimento de refeições transportadas, prezando pela excelência em sabor, nutrição
               e segurança alimentar.
             </p>
+            <p className="sobre__text">
+              Atendemos empresas de todos os portes em Joinville e região, com cardápios desenvolvidos por nutricionista
+              e entrega diária em Hot Box, garantindo temperatura e qualidade até o momento do consumo.
+            </p>
             <span className="sobre__badge">30+ anos de experiência</span>
             <div style={{ marginTop: 24 }}>
               <Link to="/quem-somos" className="btn-outline" aria-label="Conheça nossa história">Conheça nossa história →</Link>
             </div>
           </div>
           <div className="fade-in-up" style={{ transitionDelay: '100ms' }}>
-            <div className="sobre__image-placeholder" aria-label="Equipe Mangiare Refeições">Foto da equipe</div>
+            <img src={fotoEquipe} alt="Equipe Mangiare Refeições na cozinha industrial" className="sobre__image" loading="lazy" width={960} height={720} />
           </div>
         </div>
       </div>
@@ -73,18 +80,29 @@ function ServicosHome() {
       <div className="container" ref={ref}>
         <div className="servicos__header fade-in-up">
           <h2 className="servicos__title">Nossos Serviços</h2>
+          <p className="servicos__subtitle">Soluções completas em alimentação corporativa para a sua empresa</p>
         </div>
         <div className="servicos__grid servicos__grid--2col">
           <Link to="/solucoes/restaurante-marmitas" className="card-servico-big fade-in-up">
-            <div className="card-servico-big__img" aria-label="Restaurante e Marmitas"><i className="fa-solid fa-utensils" /></div>
+            <div className="card-servico-big__img-wrapper">
+              <img src={fotoPrato1} alt="Prato de refeição completa" loading="lazy" width={800} height={600} />
+            </div>
             <h3 className="card-servico-big__title">Restaurante & Marmitas</h3>
-            <p className="card-servico-big__text">Refeições de qualidade para o dia a dia, com cardápio variado desenvolvido por nutricionista.</p>
+            <p className="card-servico-big__text">
+              Refeições individuais com cardápio variado, preparadas com ingredientes frescos e acompanhamento nutricional.
+              Ideal para empresas que buscam praticidade sem abrir mão da qualidade.
+            </p>
             <span className="card-servico-big__link">Saiba mais →</span>
           </Link>
           <Link to="/solucoes/refeicoes-corporativas" className="card-servico-big fade-in-up" style={{ transitionDelay: '100ms' }}>
-            <div className="card-servico-big__img" aria-label="Refeições Corporativas"><i className="fa-solid fa-building" /></div>
+            <div className="card-servico-big__img-wrapper">
+              <img src={fotoPrato2} alt="Marmita corporativa" loading="lazy" width={800} height={600} />
+            </div>
             <h3 className="card-servico-big__title">Refeições Corporativas</h3>
-            <p className="card-servico-big__text">Soluções completas de alimentação para empresas, a partir de 50 refeições por pedido.</p>
+            <p className="card-servico-big__text">
+              Soluções completas para empresas a partir de 50 refeições por pedido. Cardápio por nutricionista,
+              entrega em Hot Box e total conformidade com normas de segurança alimentar.
+            </p>
             <span className="card-servico-big__link">Saiba mais →</span>
           </Link>
         </div>

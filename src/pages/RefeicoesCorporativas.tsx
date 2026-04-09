@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import logoCreme from '../assets/logo-creme-watermark.png';
+import fotoRefeitorio from '../assets/foto-refeitorio-1.jpg';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import PageHero from '../components/PageHero';
 import DiferenciaisGrid from '../components/DiferenciaisGrid';
@@ -13,16 +14,41 @@ function ArgumentoB2B() {
   return (
     <section className="sobre">
       <div className="container" ref={ref}>
-        <div className="fade-in-up" style={{ maxWidth: 800 }}>
-          <h2 className="sobre__title">Alimentação corporativa que faz diferença</h2>
-          <p className="sobre__text">
-            Oferecer refeições de qualidade aos colaboradores é investir em produtividade, saúde e retenção de talentos.
-            A Mangiare atende empresas de todos os portes com soluções flexíveis, a partir de 50 refeições por pedido.
-          </p>
-          <p className="sobre__text">
-            Nossa operação é pensada para gestores e equipes de RH que buscam eficiência, compliance com normas de
-            segurança alimentar e um parceiro confiável para o dia a dia da alimentação corporativa.
-          </p>
+        <div className="sobre__grid">
+          <div className="fade-in-up" style={{ maxWidth: 800 }}>
+            <h2 className="sobre__title">A solução completa para a alimentação da sua empresa</h2>
+            <p className="sobre__text">
+              Oferecer refeições de qualidade aos colaboradores é investir em produtividade, saúde e retenção de talentos.
+              A Mangiare atende empresas de todos os portes com soluções flexíveis, a partir de 50 refeições por pedido.
+            </p>
+            <p className="sobre__text">
+              Nossa operação é pensada para gestores e equipes de RH que buscam eficiência, compliance com normas de
+              segurança alimentar e um parceiro confiável para o dia a dia da alimentação corporativa. Com cardápio
+              desenvolvido por nutricionista e entrega diária em Hot Box, garantimos qualidade e pontualidade.
+            </p>
+            <p className="sobre__text">
+              Realizamos visitas quinzenais para acompanhamento de qualidade e adaptamos o cardápio conforme as
+              necessidades e preferências de cada cliente. Nossa equipe está preparada para atender demandas especiais,
+              incluindo eventos, inaugurações e datas comemorativas.
+            </p>
+            <div className="metricas">
+              <div className="metrica fade-in-up" style={{ transitionDelay: '100ms' }}>
+                <span className="metrica__numero">50+</span>
+                <span className="metrica__label">refeições/dia mínimo</span>
+              </div>
+              <div className="metrica fade-in-up" style={{ transitionDelay: '200ms' }}>
+                <span className="metrica__numero">30+</span>
+                <span className="metrica__label">anos de experiência</span>
+              </div>
+              <div className="metrica fade-in-up" style={{ transitionDelay: '300ms' }}>
+                <span className="metrica__numero">10+</span>
+                <span className="metrica__label">empresas atendidas</span>
+              </div>
+            </div>
+          </div>
+          <div className="fade-in-up" style={{ transitionDelay: '100ms' }}>
+            <img src={fotoRefeitorio} alt="Refeitório corporativo atendido pela Mangiare" className="sobre__image" loading="lazy" width={800} height={600} />
+          </div>
         </div>
       </div>
     </section>
@@ -45,20 +71,20 @@ function FormB2B() {
       <div className="container" ref={ref}>
         <div className="contato__cta fade-in-up">
           <h2 className="contato__title">Solicite um orçamento corporativo</h2>
-          <p className="contato__subtitle">Preencha os dados abaixo</p>
+          <p className="contato__subtitle">Preencha os dados abaixo e nossa equipe entrará em contato em até 24 horas</p>
         </div>
         <form className="contato__form contato__form--centered fade-in-up" onSubmit={handleSubmit}>
           <div className="form-row">
-            <FormField label="Empresa" name="empresa" required value={form.empresa} onChange={set('empresa')} variant="dark" />
-            <FormField label="CNPJ" name="cnpj" value={form.cnpj} onChange={set('cnpj')} variant="dark" />
+            <FormField label="Empresa" name="empresa" required value={form.empresa} onChange={set('empresa')} variant="dark" placeholder="Nome da empresa" />
+            <FormField label="CNPJ" name="cnpj" value={form.cnpj} onChange={set('cnpj')} variant="dark" placeholder="00.000.000/0000-00" />
           </div>
           <div className="form-row">
-            <FormField label="Responsável" name="responsavel" required value={form.responsavel} onChange={set('responsavel')} variant="dark" />
-            <FormField label="Nº de refeições/dia" name="refeicoes" value={form.refeicoes} onChange={set('refeicoes')} variant="dark" />
+            <FormField label="Responsável" name="responsavel" required value={form.responsavel} onChange={set('responsavel')} variant="dark" placeholder="Nome do responsável" />
+            <FormField label="Nº de refeições/dia" name="refeicoes" value={form.refeicoes} onChange={set('refeicoes')} variant="dark" placeholder="Ex: 80" />
           </div>
           <div className="form-row">
-            <FormField label="E-mail" name="email" type="email" required value={form.email} onChange={set('email')} variant="dark" />
-            <FormField label="Telefone" name="telefone" type="tel" value={form.telefone} onChange={set('telefone')} variant="dark" />
+            <FormField label="E-mail" name="email" type="email" required value={form.email} onChange={set('email')} variant="dark" placeholder="seu@empresa.com" />
+            <FormField label="Telefone" name="telefone" type="tel" value={form.telefone} onChange={set('telefone')} variant="dark" placeholder="(47) 99999-9999" />
           </div>
           <button type="submit" className="btn-primary">Enviar Solicitação</button>
         </form>
