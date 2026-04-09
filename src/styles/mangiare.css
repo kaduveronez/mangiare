@@ -711,11 +711,13 @@ ul, ol { list-style: none; }
 }
 .missao__photo {
   height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.3);
-  font-size: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.missao__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .missao__photo:nth-child(1) { background: #8B5A3C; }
 .missao__photo:nth-child(2) { background: #A67C52; }
