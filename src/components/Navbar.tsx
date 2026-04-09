@@ -36,7 +36,7 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <Link to="/" className="navbar__logo">
-            Mangiare<span>refeições</span>
+            <img src={logoAmarelo} alt="Mangiare Refeições" className="navbar__logo-img" />
           </Link>
           <div className="navbar__links">
             {NAV_LINKS.map(l => (
