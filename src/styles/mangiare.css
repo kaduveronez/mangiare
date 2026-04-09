@@ -543,6 +543,12 @@ ul, ol { list-style: none; }
   font-size: clamp(28px, 4vw, 40px);
   color: var(--color-creme);
 }
+.servicos__subtitle {
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+  font-size: 18px;
+  color: rgba(245,239,200,0.70);
+  margin-top: 12px;
+}
 .servicos__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -599,6 +605,22 @@ ul, ol { list-style: none; }
   font-size: 56px;
   margin-bottom: 20px;
 }
+.card-servico-big__img-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  margin-bottom: 20px;
+}
+.card-servico-big__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+.card-servico-big:hover .card-servico-big__img-wrapper img {
+  transform: scale(1.05);
+}
 .card-servico-big__title {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -606,17 +628,23 @@ ul, ol { list-style: none; }
   color: var(--color-creme);
   margin-bottom: 12px;
 }
+.card-servico-big__title--dark { color: var(--color-bordo); }
 .card-servico-big__text {
   font-size: 16px;
   color: rgba(245,239,200,0.80);
   line-height: 1.65;
   margin-bottom: 20px;
 }
+.card-servico-big__text--dark { color: var(--color-texto); }
 .card-servico-big__link {
   font-family: 'Sofia Sans Semi Condensed', sans-serif;
   font-weight: 600;
   font-size: 15px;
   color: var(--color-dourado);
+}
+.card-servico-big--light {
+  background: #ffffff;
+  border: 1.5px solid rgba(0,0,0,0.10);
 }
 
 /* ═══════════════════════════════════════════════
