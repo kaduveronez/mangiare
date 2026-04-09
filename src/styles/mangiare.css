@@ -168,18 +168,12 @@ ul, ol { list-style: none; }
   justify-content: space-between;
 }
 .navbar__logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 28px;
-  color: var(--color-creme);
+  display: flex;
+  align-items: center;
 }
-.navbar__logo span {
-  font-family: 'Sofia Sans Semi Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: rgba(245,239,200,0.7);
-  display: block;
-  margin-top: -4px;
+.navbar__logo-img {
+  height: 36px;
+  width: auto;
 }
 .navbar__links {
   display: none;
