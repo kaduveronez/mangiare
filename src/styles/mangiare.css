@@ -491,6 +491,40 @@ ul, ol { list-style: none; }
   color: rgba(0,0,0,0.3);
   font-size: 14px;
 }
+.sobre__image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+}
+
+/* ─── Metrics ─── */
+.metricas {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.metrica {
+  text-align: center;
+}
+.metrica__numero {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: var(--color-dourado);
+  line-height: 1;
+}
+.metrica__label {
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+  font-size: 14px;
+  color: var(--color-bordo);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
 
 /* ═══════════════════════════════════════════════
    SERVIÇOS
