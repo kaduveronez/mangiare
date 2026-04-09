@@ -24,9 +24,9 @@
   --container-px: 24px;
 
   /* Borders & Shadows */
-  --radius-card: 12px;
-  --radius-btn: 8px;
-  --radius-pill: 50px;
+  --radius-card: 0px;
+  --radius-btn: 0px;
+  --radius-pill: 0px;
   --shadow-card: 0 4px 20px rgba(0,0,0,0.10);
   --shadow-card-hover: 0 8px 32px rgba(0,0,0,0.20);
   --shadow-navbar: 0 2px 16px rgba(0,0,0,0.30);
