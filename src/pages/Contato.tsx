@@ -70,45 +70,43 @@ function ContatoForm() {
             </form>
           </div>
 
-          {/* Coluna direita — painel escuro */}
-          <div className="dark-panel fade-in-up" style={{ transitionDelay: '100ms' }}>
-            <i className="fa-solid fa-comments dark-panel__watermark" />
-            <div className="dark-panel__inner">
-              <p className="dark-panel__label">CANAIS DE ATENDIMENTO</p>
-              <h3 className="dark-panel__title">Prefere falar direto?</h3>
-              <p className="dark-panel__subtitle">Respondemos em até 2 horas em dias úteis. Para urgências, o WhatsApp é o caminho mais rápido.</p>
-
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="whatsapp-cta">
-                <i className="fa-brands fa-whatsapp whatsapp-cta__icon" />
-                <div>
-                  <p className="whatsapp-cta__primary">Falar pelo WhatsApp</p>
-                  <p className="whatsapp-cta__secondary">(47) 99626-6842</p>
-                </div>
-                <i className="fa-solid fa-arrow-right whatsapp-cta__arrow" />
-              </a>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-                {[
-                  { icon: 'fa-solid fa-phone', label: 'Telefone', value: '(47) 99626-6842', href: 'tel:+5547996266842' },
-                  { icon: 'fa-solid fa-envelope', label: 'E-mail', value: 'mangiaree.refeicoes@gmail.com', href: 'mailto:mangiaree.refeicoes@gmail.com' },
-                  { icon: 'fa-brands fa-instagram', label: 'Instagram', value: '@mangiare.refeicoes', href: 'https://instagram.com/mangiare.refeicoes' },
-                ].map((c, i) => (
-                  <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" className="canal-item">
-                    <span className="canal-item__icon"><i className={c.icon} /></span>
+          {/* Coluna direita — contatos + mapa */}
+          <div className="contato-right-col fade-in-up" style={{ transitionDelay: '100ms' }}>
+            <div className="contato-info-panel">
+              <p className="contato-info-panel__label">CONTATO</p>
+              {[
+                { icon: 'fa-solid fa-phone', label: 'Telefone', value: '(47) 99626-6842', href: 'tel:+5547996266842', static: false },
+                { icon: 'fa-solid fa-envelope', label: 'E-mail', value: 'mangiaree.refeicoes@gmail.com', href: 'mailto:mangiaree.refeicoes@gmail.com', static: false },
+                { icon: 'fa-brands fa-instagram', label: 'Instagram', value: '@mangiare.refeicoes', href: 'https://instagram.com/mangiare.refeicoes', static: false },
+                { icon: 'fa-solid fa-location-dot', label: 'Endereço', value: 'R. Minas Gerais, 5300, Morro do Meio, Joinville – SC', href: null, static: true },
+              ].map((c, i) =>
+                c.static ? (
+                  <div key={i} className="contato-info-item contato-info-item--static">
+                    <span className="contato-info-item__icon"><i className={c.icon} /></span>
                     <div>
-                      <p className="canal-item__label">{c.label.toUpperCase()}</p>
-                      <p className="canal-item__value">{c.value}</p>
+                      <p className="contato-info-item__label">{c.label.toUpperCase()}</p>
+                      <p className="contato-info-item__value">{c.value}</p>
+                    </div>
+                  </div>
+                ) : (
+                  <a key={i} href={c.href!} target={c.href!.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" className="contato-info-item">
+                    <span className="contato-info-item__icon"><i className={c.icon} /></span>
+                    <div>
+                      <p className="contato-info-item__label">{c.label.toUpperCase()}</p>
+                      <p className="contato-info-item__value">{c.value}</p>
                     </div>
                   </a>
-                ))}
-                <div className="canal-item canal-item--static">
-                  <span className="canal-item__icon"><i className="fa-solid fa-location-dot" /></span>
-                  <div>
-                    <p className="canal-item__label">ENDEREÇO</p>
-                    <p className="canal-item__value" style={{ lineHeight: 1.5 }}>R. Minas Gerais, 5300<br />Morro do Meio, Joinville – SC</p>
-                  </div>
-                </div>
-              </div>
+                )
+              )}
+            </div>
+            <div className="contato-map-embed">
+              <iframe
+                src="https://maps.google.com/maps?q=R.+Minas+Gerais,+5300,+Morro+do+Meio,+Joinville,+SC,+Brasil&output=embed&hl=pt-BR&z=16"
+                title="Localização Mangiare Refeições"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
