@@ -114,21 +114,21 @@ function MVV() {
         </div>
         <div className="servicos__grid servicos__grid--3col" style={{ marginTop: 48 }}>
           <div className="fade-in-up" style={{ background: 'var(--color-bordo)', padding: '40px 32px', color: 'var(--color-creme)' }}>
-            <div style={{ fontSize: 32, marginBottom: 16 }}>🎯</div>
+            <i className="fa-solid fa-bullseye" style={{ fontSize: 32, marginBottom: 16, display: 'block' }} />
             <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, marginBottom: 16 }}>Missão</h3>
             <p style={{ lineHeight: 1.7, opacity: 0.9, fontSize: 15 }}>
               Nutrir pessoas com refeições saborosas, seguras e nutritivas, sendo o parceiro alimentar de confiança das empresas do norte de Santa Catarina.
             </p>
           </div>
           <div className="fade-in-up" style={{ background: 'var(--color-verde)', padding: '40px 32px', color: 'var(--color-creme)', transitionDelay: '100ms' }}>
-            <div style={{ fontSize: 32, marginBottom: 16 }}>🔭</div>
+            <i className="fa-solid fa-eye" style={{ fontSize: 32, marginBottom: 16, display: 'block' }} />
             <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, marginBottom: 16 }}>Visão</h3>
             <p style={{ lineHeight: 1.7, opacity: 0.9, fontSize: 15 }}>
               Ser reconhecida como a principal referência em refeições transportadas da região, expandindo nossa atuação com qualidade, inovação e responsabilidade alimentar.
             </p>
           </div>
           <div className="fade-in-up" style={{ background: '#2C1810', padding: '40px 32px', color: 'var(--color-creme)', transitionDelay: '200ms' }}>
-            <div style={{ fontSize: 32, marginBottom: 16 }}>💎</div>
+            <i className="fa-solid fa-gem" style={{ fontSize: 32, marginBottom: 16, display: 'block' }} />
             <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, marginBottom: 16 }}>Valores</h3>
             <ul style={{ lineHeight: 1.9, opacity: 0.9, fontSize: 15 }}>
               <li>• Qualidade sem compromisso</li>
