@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logoAmarelo from '../assets/logo-amarelo.png';
+import logoFooter from '../assets/logo-footer.svg';
 
 const LINKS = [
   { label: 'Home', to: '/' },
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__content">
           <Link to="/" className="footer__logo">
-            <img src={logoAmarelo} alt="Mangiare Refeições" className="footer__logo-img" />
+            <img src={logoFooter} alt="Mangiare Refeições" className="footer__logo-img" />
           </Link>
           <div className="footer__links">
             {LINKS.map(l => <Link key={l.to} to={l.to}>{l.label}</Link>)}
