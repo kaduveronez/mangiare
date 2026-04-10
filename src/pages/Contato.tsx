@@ -10,7 +10,7 @@ function ContatoRapido() {
   const canais = [
     { icon: 'fa-brands fa-whatsapp', titulo: 'WhatsApp', detalhe: '(47) 99626-6842', descricao: 'Resposta rápida em horário comercial', href: WHATSAPP_URL, target: '_blank', cor: '#25D366' },
     { icon: 'fa-solid fa-phone', titulo: 'Telefone', detalhe: '(47) 99626-6842', descricao: 'Seg a Sex, 7h às 17h', href: 'tel:+5547996266842', target: '_self', cor: 'var(--color-bordo)' },
-    { icon: 'fa-solid fa-envelope', titulo: 'E-mail', detalhe: 'mangiaree.refeicoes@gmail.com', descricao: 'Resposta em até 24 horas', href: 'mailto:mangiaree.refeicoes@gmail.com', target: '_self', cor: 'var(--color-verde)' },
+    { icon: 'fa-solid fa-envelope', titulo: 'E-mail', detalhe: 'contato@mangiarefeicoes.com.br', descricao: 'Resposta em até 24 horas', href: 'mailto:contato@mangiarefeicoes.com.br', target: '_self', cor: 'var(--color-verde)' },
     { icon: 'fa-brands fa-instagram', titulo: 'Instagram', detalhe: '@mangiare.refeicoes', descricao: 'Acompanhe nossos conteúdos', href: 'https://instagram.com/mangiare.refeicoes', target: '_blank', cor: '#E1306C' },
   ];
   return (
@@ -76,7 +76,7 @@ function ContatoForm() {
               <p className="contato-info-panel__label">CONTATO</p>
               {[
                 { icon: 'fa-solid fa-phone', label: 'Telefone', value: '(47) 99626-6842', href: 'tel:+5547996266842', static: false },
-                { icon: 'fa-solid fa-envelope', label: 'E-mail', value: 'mangiaree.refeicoes@gmail.com', href: 'mailto:mangiaree.refeicoes@gmail.com', static: false },
+                { icon: 'fa-solid fa-envelope', label: 'E-mail', value: 'contato@mangiarefeicoes.com.br', href: 'mailto:contato@mangiarefeicoes.com.br', static: false },
                 { icon: 'fa-brands fa-instagram', label: 'Instagram', value: '@mangiare.refeicoes', href: 'https://instagram.com/mangiare.refeicoes', static: false },
                 { icon: 'fa-solid fa-location-dot', label: 'Endereço', value: 'R. Minas Gerais, 5300, Morro do Meio, Joinville – SC', href: null, static: true },
               ].map((c, i) =>

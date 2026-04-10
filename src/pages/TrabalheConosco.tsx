@@ -188,7 +188,7 @@ function FormVagas() {
         </form>
         <p style={{ textAlign: 'center', color: '#aaa', fontSize: 14, marginTop: 20 }}>
           Você também pode enviar seu currículo para{' '}
-          <a href="mailto:mangiaree.refeicoes@gmail.com" style={{ color: 'var(--color-dourado)' }}>mangiaree.refeicoes@gmail.com</a>
+          <a href="mailto:contato@mangiarefeicoes.com.br" style={{ color: 'var(--color-dourado)' }}>contato@mangiarefeicoes.com.br</a>
         </p>
       </div>
     </section>

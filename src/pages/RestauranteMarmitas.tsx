@@ -234,7 +234,7 @@ function CTA() {
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" aria-label="WhatsApp Mangiare">
             Falar no WhatsApp
           </a>
-          <a href="mailto:mangiaree.refeicoes@gmail.com" className="btn-outline btn-outline--light">
+          <a href="mailto:contato@mangiarefeicoes.com.br" className="btn-outline btn-outline--light">
             Enviar por E-mail
           </a>
         </div>

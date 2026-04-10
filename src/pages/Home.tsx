@@ -316,8 +316,8 @@ function FormularioContato() {
               <a href="tel:+5547996266842" className="contato__item" aria-label="Ligar para Mangiare">
                 <span className="contato__icon"><i className="fa-solid fa-phone" /></span><span className="contato__info">(47) 99626-6842</span>
               </a>
-              <a href="mailto:mangiaree.refeicoes@gmail.com" className="contato__item" aria-label="E-mail Mangiare">
-                <span className="contato__icon"><i className="fa-solid fa-envelope" /></span><span className="contato__info">mangiaree.refeicoes@gmail.com</span>
+              <a href="mailto:contato@mangiarefeicoes.com.br" className="contato__item" aria-label="E-mail Mangiare">
+                <span className="contato__icon"><i className="fa-solid fa-envelope" /></span><span className="contato__info">contato@mangiarefeicoes.com.br</span>
               </a>
               <a href="https://instagram.com/mangiare.refeicoes" target="_blank" rel="noopener noreferrer" className="contato__item" aria-label="Instagram Mangiare">
                 <span className="contato__icon"><i className="fa-brands fa-instagram" /></span><span className="contato__info">@mangiare.refeicoes</span>

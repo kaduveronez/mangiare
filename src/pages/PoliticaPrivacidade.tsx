@@ -44,7 +44,7 @@ export default function PoliticaPrivacidade() {
 
           <h2>6. Contato</h2>
           <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta Política de Privacidade, entre em contato conosco:</p>
-          <p><strong>E-mail:</strong> <a href="mailto:mangiaree.refeicoes@gmail.com">mangiaree.refeicoes@gmail.com</a></p>
+          <p><strong>E-mail:</strong> <a href="mailto:contato@mangiarefeicoes.com.br">contato@mangiarefeicoes.com.br</a></p>
           <p><strong>Endereço:</strong> R. Minas Gerais, 5300, Morro do Meio, Joinville – SC</p>
 
           <p style={{ marginTop: 40, fontSize: 14, opacity: 0.6 }}>Última atualização: março de 2026.</p>
