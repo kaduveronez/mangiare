@@ -14,24 +14,22 @@ function ContatoRapido() {
     { icon: 'fa-brands fa-instagram', titulo: 'Instagram', detalhe: '@mangiare.refeicoes', descricao: 'Acompanhe nossos conteúdos', href: 'https://instagram.com/mangiare.refeicoes', target: '_blank', cor: '#E1306C' },
   ];
   return (
-    <section style={{ background: 'var(--color-verde)', padding: 'var(--space-section-y) 0' }}>
+    <section className="como-funciona">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>FALE CONOSCO</p>
-          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Resposta rápida, sem enrolação</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--dourado">FALE CONOSCO</p>
+          <h2 className="section-title section-title--creme">Resposta rápida, sem enrolação</h2>
         </div>
         <div className="servicos__grid servicos__grid--4col" style={{ marginTop: 48 }}>
           {canais.map((c, i) => (
             <a key={i} href={c.href} target={c.target} rel={c.target === '_blank' ? 'noopener noreferrer' : undefined}
-              className="fade-in-up"
-              style={{ transitionDelay: `${i * 80}ms`, display: 'block', background: 'rgba(255,255,255,0.06)', padding: '32px 24px', textAlign: 'center', textDecoration: 'none', transition: 'background 200ms', borderBottom: `3px solid ${c.cor}` }}
-              onMouseOver={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')}
-              onMouseOut={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
+              className="canal-card fade-in-up"
+              style={{ transitionDelay: `${i * 80}ms`, borderBottom: `3px solid ${c.cor}` }}
             >
-              <i className={c.icon} style={{ fontSize: 36, color: c.cor, display: 'block', marginBottom: 16 }} />
-              <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 18, marginBottom: 8 }}>{c.titulo}</h3>
-              <p style={{ color: 'var(--color-dourado)', fontWeight: 600, fontSize: 14, marginBottom: 6 }}>{c.detalhe}</p>
-              <p style={{ color: '#a0b8b0', fontSize: 13 }}>{c.descricao}</p>
+              <i className={`${c.icon} canal-card__icon`} style={{ color: c.cor }} />
+              <h3 className="canal-card__titulo">{c.titulo}</h3>
+              <p className="canal-card__detalhe">{c.detalhe}</p>
+              <p className="canal-card__desc">{c.descricao}</p>
             </a>
           ))}
         </div>
@@ -52,79 +50,62 @@ function ContatoForm() {
   };
 
   return (
-    <section style={{ background: '#f5f0ea', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--offwhite">
       <div className="container" ref={ref}>
         <div className="contato-page__grid">
 
           {/* Coluna esquerda — formulário */}
-          <div className="fade-in-up" style={{ background: '#fff', padding: '48px 40px', boxShadow: '0 4px 32px rgba(0,0,0,0.07)' }}>
-            <p style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-bordo)', marginBottom: 12 }}>FALE CONOSCO</p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-verde)', fontSize: 28, marginBottom: 8 }}>Envie sua mensagem</h2>
-            <p style={{ color: '#888', fontSize: 15, marginBottom: 32, lineHeight: 1.6 }}>Preencha o formulário e nossa equipe retorna em até 24 horas com uma resposta ou proposta.</p>
+          <div className="form-panel fade-in-up">
+            <p className="form-panel__label">FALE CONOSCO</p>
+            <h2 className="form-panel__title">Envie sua mensagem</h2>
+            <p className="form-panel__subtitle">Preencha o formulário e nossa equipe retorna em até 24 horas com uma resposta ou proposta.</p>
             <form className="contato-page__form" onSubmit={handleSubmit}>
               <FormField label="Nome" name="nome" required value={form.nome} onChange={set('nome')} placeholder="Seu nome" />
               <FormField label="E-mail" name="email" type="email" required value={form.email} onChange={set('email')} placeholder="seu@email.com" />
               <FormField label="Assunto" name="assunto" type="select" value={form.assunto} onChange={set('assunto')} options={['Cotação', 'Dúvida', 'Outro']} />
               <FormField label="Mensagem" name="mensagem" type="textarea" required value={form.mensagem} onChange={set('mensagem')} placeholder="Como podemos ajudar?" />
-              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}>
+              <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: 8 }}>
                 <i className="fa-solid fa-paper-plane" style={{ marginRight: 10 }} />Enviar Mensagem
               </button>
             </form>
           </div>
 
-          {/* Coluna direita — painel escuro com canais */}
-          <div className="fade-in-up" style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(145deg, #2a0610 0%, #4a1020 50%, #0a0a0a 100%)', padding: '48px 40px', display: 'flex', flexDirection: 'column', transitionDelay: '100ms' }}>
-            <i className="fa-solid fa-comments" style={{ position: 'absolute', bottom: -24, right: -16, fontSize: 220, color: '#fff', opacity: 0.03, pointerEvents: 'none', lineHeight: 1 }} />
+          {/* Coluna direita — painel escuro */}
+          <div className="dark-panel fade-in-up" style={{ transitionDelay: '100ms' }}>
+            <i className="fa-solid fa-comments dark-panel__watermark" />
+            <div className="dark-panel__inner">
+              <p className="dark-panel__label">CANAIS DE ATENDIMENTO</p>
+              <h3 className="dark-panel__title">Prefere falar direto?</h3>
+              <p className="dark-panel__subtitle">Respondemos em até 2 horas em dias úteis. Para urgências, o WhatsApp é o caminho mais rápido.</p>
 
-            <div style={{ position: 'relative' }}>
-              <p style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'rgba(245,185,53,0.8)', marginBottom: 12 }}>CANAIS DE ATENDIMENTO</p>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 26, marginBottom: 8, lineHeight: 1.3 }}>Prefere falar direto?</h3>
-              <p style={{ color: 'rgba(245,235,220,0.5)', fontSize: 15, marginBottom: 36, lineHeight: 1.6 }}>Respondemos em até 2 horas em dias úteis. Para urgências, o WhatsApp é o caminho mais rápido.</p>
-
-              {/* WhatsApp CTA */}
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
-                style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#25D366', padding: '14px 20px', marginBottom: 32, textDecoration: 'none', transition: 'opacity 200ms' }}
-                onMouseOver={e => (e.currentTarget.style.opacity = '0.9')}
-                onMouseOut={e => (e.currentTarget.style.opacity = '1')}
-              >
-                <i className="fa-brands fa-whatsapp" style={{ fontSize: 24, color: '#fff' }} />
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="whatsapp-cta">
+                <i className="fa-brands fa-whatsapp whatsapp-cta__icon" />
                 <div>
-                  <p style={{ color: '#fff', fontWeight: 700, fontSize: 15, lineHeight: 1 }}>Falar pelo WhatsApp</p>
-                  <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12, marginTop: 3 }}>(47) 99626-6842</p>
+                  <p className="whatsapp-cta__primary">Falar pelo WhatsApp</p>
+                  <p className="whatsapp-cta__secondary">(47) 99626-6842</p>
                 </div>
-                <i className="fa-solid fa-arrow-right" style={{ color: '#fff', marginLeft: 'auto', fontSize: 14 }} />
+                <i className="fa-solid fa-arrow-right whatsapp-cta__arrow" />
               </a>
 
-              {/* Demais canais */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
                 {[
                   { icon: 'fa-solid fa-phone', label: 'Telefone', value: '(47) 99626-6842', href: 'tel:+5547996266842' },
                   { icon: 'fa-solid fa-envelope', label: 'E-mail', value: 'mangiaree.refeicoes@gmail.com', href: 'mailto:mangiaree.refeicoes@gmail.com' },
                   { icon: 'fa-brands fa-instagram', label: 'Instagram', value: '@mangiare.refeicoes', href: 'https://instagram.com/mangiare.refeicoes' },
                 ].map((c, i) => (
-                  <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer"
-                    style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', transition: 'opacity 200ms' }}
-                    onMouseOver={e => (e.currentTarget.style.opacity = '0.75')}
-                    onMouseOut={e => (e.currentTarget.style.opacity = '1')}
-                  >
-                    <span style={{ width: 36, height: 36, background: 'rgba(245,185,53,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <i className={c.icon} style={{ fontSize: 16, color: 'var(--color-dourado)' }} />
-                    </span>
+                  <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" className="canal-item">
+                    <span className="canal-item__icon"><i className={c.icon} /></span>
                     <div>
-                      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1, color: 'rgba(245,185,53,0.6)', marginBottom: 2 }}>{c.label.toUpperCase()}</p>
-                      <p style={{ color: 'var(--color-creme)', fontSize: 14 }}>{c.value}</p>
+                      <p className="canal-item__label">{c.label.toUpperCase()}</p>
+                      <p className="canal-item__value">{c.value}</p>
                     </div>
                   </a>
                 ))}
-
-                {/* Endereço */}
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, paddingTop: 12 }}>
-                  <span style={{ width: 36, height: 36, background: 'rgba(245,185,53,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
-                    <i className="fa-solid fa-location-dot" style={{ fontSize: 16, color: 'var(--color-dourado)' }} />
-                  </span>
+                <div className="canal-item canal-item--static">
+                  <span className="canal-item__icon"><i className="fa-solid fa-location-dot" /></span>
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1, color: 'rgba(245,185,53,0.6)', marginBottom: 2 }}>ENDEREÇO</p>
-                    <p style={{ color: 'var(--color-creme)', fontSize: 14, lineHeight: 1.5 }}>R. Minas Gerais, 5300<br />Morro do Meio, Joinville – SC</p>
+                    <p className="canal-item__label">ENDEREÇO</p>
+                    <p className="canal-item__value" style={{ lineHeight: 1.5 }}>R. Minas Gerais, 5300<br />Morro do Meio, Joinville – SC</p>
                   </div>
                 </div>
               </div>
@@ -140,49 +121,48 @@ function ContatoForm() {
 function Horarios() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
-    <section style={{ background: 'var(--color-creme)', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--creme">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-bordo)' }}>HORÁRIOS</p>
-          <h2 className="section-title" style={{ color: 'var(--color-verde)' }}>Quando nos encontrar</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--bordo">HORÁRIOS</p>
+          <h2 className="section-title section-title--verde">Quando nos encontrar</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginTop: 48, maxWidth: 900, margin: '48px auto 0' }}>
-          <div className="fade-in-up" style={{ background: '#fff', padding: '32px 28px', borderLeft: '4px solid var(--color-bordo)' }}>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-bordo)', fontSize: 20, marginBottom: 20 }}>Atendimento comercial</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div className="horarios-grid">
+          <div className="horario-card horario-card--branco horario-card--bordo-l fade-in-up">
+            <h3 className="horario-card__title horario-card__title--bordo">Atendimento comercial</h3>
+            <div className="horario-card__rows">
               {[
                 { dia: 'Segunda a Sexta', horario: '7h às 17h' },
                 { dia: 'Sábado', horario: '7h às 12h' },
                 { dia: 'Domingo e Feriados', horario: 'Fechado' },
               ].map((h, i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid #f0e8e0' }}>
-                  <span style={{ color: '#555', fontSize: 15 }}>{h.dia}</span>
-                  <span style={{ fontWeight: 600, color: 'var(--color-verde)', fontSize: 15 }}>{h.horario}</span>
+                <div key={i} className="horario-row">
+                  <span className="horario-row__dia">{h.dia}</span>
+                  <span className="horario-row__hora horario-row__hora--verde">{h.horario}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="fade-in-up" style={{ background: '#fff', padding: '32px 28px', borderLeft: '4px solid var(--color-verde)', transitionDelay: '100ms' }}>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-verde)', fontSize: 20, marginBottom: 20 }}>Entregas</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div className="horario-card horario-card--branco horario-card--verde-l fade-in-up" style={{ transitionDelay: '100ms' }}>
+            <h3 className="horario-card__title horario-card__title--verde">Entregas</h3>
+            <div className="horario-card__rows">
               {[
                 { dia: 'Segunda a Sexta', horario: 'Horário combinado' },
                 { dia: 'Sábado', horario: 'Horário combinado' },
                 { dia: 'Domingo e Feriados', horario: 'Conforme contrato' },
               ].map((h, i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid #f0e8e0' }}>
-                  <span style={{ color: '#555', fontSize: 15 }}>{h.dia}</span>
-                  <span style={{ fontWeight: 600, color: 'var(--color-bordo)', fontSize: 15 }}>{h.horario}</span>
+                <div key={i} className="horario-row">
+                  <span className="horario-row__dia">{h.dia}</span>
+                  <span className="horario-row__hora horario-row__hora--bordo">{h.horario}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="fade-in-up" style={{ background: 'var(--color-bordo)', padding: '32px 28px', transitionDelay: '200ms' }}>
-            <i className="fa-brands fa-whatsapp" style={{ fontSize: 40, color: '#25D366', marginBottom: 16, display: 'block' }} />
-            <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 20, marginBottom: 12 }}>WhatsApp disponível</h3>
-            <p style={{ color: 'rgba(245,239,200,0.8)', fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
-              Para urgências, nosso WhatsApp está disponível fora do horário comercial.
-              Respondemos assim que possível.
+          <div className="horario-card horario-card--cta fade-in-up" style={{ transitionDelay: '200ms' }}>
+            <i className="fa-brands fa-whatsapp horario-card__whatsapp-icon" />
+            <h3 className="horario-card__title horario-card__title--creme">WhatsApp disponível</h3>
+            <p className="horario-card__cta-text">
+              Para urgências, nosso WhatsApp está disponível fora do horário comercial. Respondemos assim que possível.
             </p>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 14 }}>
               Abrir WhatsApp
@@ -197,43 +177,35 @@ function Horarios() {
 function LocalizacaoSection() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
-    <section style={{ background: 'var(--color-preto)', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--preto">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>LOCALIZAÇÃO</p>
-          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Onde estamos</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--dourado">LOCALIZAÇÃO</p>
+          <h2 className="section-title section-title--creme">Onde estamos</h2>
         </div>
         <div className="sobre__grid" style={{ marginTop: 48 }}>
           <div className="fade-in-up">
-            <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 22, marginBottom: 20 }}>Cozinha industrial Mangiare</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                <i className="fa-solid fa-location-dot" style={{ color: 'var(--color-dourado)', fontSize: 18, marginTop: 2, flexShrink: 0 }} />
-                <div>
-                  <p style={{ color: 'var(--color-creme)', fontWeight: 600, marginBottom: 4 }}>Endereço</p>
-                  <p style={{ color: '#999', fontSize: 15, lineHeight: 1.6 }}>R. Minas Gerais, 5300<br />Morro do Meio, Joinville – SC<br />CEP: 89.222-280</p>
+            <h3 className="section-title section-title--creme" style={{ fontSize: 22, marginBottom: 20 }}>Cozinha industrial Mangiare</h3>
+            <div className="localizacao__info-list">
+              {[
+                { icon: 'fa-solid fa-location-dot', label: 'Endereço', value: <>R. Minas Gerais, 5300<br />Morro do Meio, Joinville – SC<br />CEP: 89.222-280</> },
+                { icon: 'fa-solid fa-map', label: 'Área de atendimento', value: 'Joinville e municípios da região norte de Santa Catarina. Entre em contato para verificar disponibilidade.' },
+                { icon: 'fa-solid fa-car', label: 'Como chegar', value: 'Estacionamento próprio disponível para visitas. Atendimentos presenciais mediante agendamento.' },
+              ].map((item, i) => (
+                <div key={i} className="localizacao__item">
+                  <i className={`${item.icon} localizacao__icon`} />
+                  <div>
+                    <p className="localizacao__label">{item.label}</p>
+                    <p className="localizacao__value">{item.value}</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                <i className="fa-solid fa-map" style={{ color: 'var(--color-dourado)', fontSize: 18, marginTop: 2, flexShrink: 0 }} />
-                <div>
-                  <p style={{ color: 'var(--color-creme)', fontWeight: 600, marginBottom: 4 }}>Área de atendimento</p>
-                  <p style={{ color: '#999', fontSize: 15, lineHeight: 1.6 }}>Joinville e municípios da região norte de Santa Catarina. Entre em contato para verificar disponibilidade.</p>
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                <i className="fa-solid fa-car" style={{ color: 'var(--color-dourado)', fontSize: 18, marginTop: 2, flexShrink: 0 }} />
-                <div>
-                  <p style={{ color: 'var(--color-creme)', fontWeight: 600, marginBottom: 4 }}>Como chegar</p>
-                  <p style={{ color: '#999', fontSize: 15, lineHeight: 1.6 }}>Estacionamento próprio disponível para visitas. Atendimentos presenciais mediante agendamento.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-          <div className="fade-in-up" style={{ transitionDelay: '100ms', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300, border: '1px solid #333' }}>
-            <div style={{ textAlign: 'center', color: '#666' }}>
-              <i className="fa-solid fa-map-location-dot" style={{ fontSize: 48, marginBottom: 12, display: 'block', color: 'var(--color-dourado)' }} />
-              <p style={{ fontSize: 14 }}>R. Minas Gerais, 5300<br />Morro do Meio — Joinville, SC</p>
+          <div className="localizacao__map fade-in-up" style={{ transitionDelay: '100ms' }}>
+            <div className="localizacao__map-inner">
+              <i className="fa-solid fa-map-location-dot localizacao__map-icon" />
+              <p className="localizacao__map-text">R. Minas Gerais, 5300<br />Morro do Meio — Joinville, SC</p>
             </div>
           </div>
         </div>
@@ -253,26 +225,20 @@ function FAQ() {
     { q: 'Vocês emitem nota fiscal?', r: 'Sim! Emitimos nota fiscal para todas as transações comerciais, garantindo total formalidade e transparência na parceria.' },
   ];
   return (
-    <section style={{ background: 'var(--color-creme)', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--creme">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-bordo)' }}>DÚVIDAS</p>
-          <h2 className="section-title" style={{ color: 'var(--color-verde)' }}>Perguntas frequentes</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--bordo">DÚVIDAS</p>
+          <h2 className="section-title section-title--verde">Perguntas frequentes</h2>
         </div>
-        <div style={{ maxWidth: 800, margin: '48px auto 0' }}>
+        <div className="faq__list">
           {perguntas.map((p, i) => (
-            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 60}ms`, borderBottom: '1px solid #ddd' }}>
-              <button
-                onClick={() => setAberto(aberto === i ? null : i)}
-                style={{ width: '100%', textAlign: 'left', padding: '20px 0', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}
-                aria-expanded={aberto === i}
-              >
-                <span style={{ fontWeight: 600, fontSize: 16, color: 'var(--color-verde)', lineHeight: 1.4 }}>{p.q}</span>
-                <i className={`fa-solid fa-chevron-${aberto === i ? 'up' : 'down'}`} style={{ flexShrink: 0, color: 'var(--color-bordo)' }} />
+            <div key={i} className="faq__item fade-in-up" style={{ transitionDelay: `${i * 60}ms` }}>
+              <button className="faq__btn" onClick={() => setAberto(aberto === i ? null : i)} aria-expanded={aberto === i}>
+                <span className="faq__question">{p.q}</span>
+                <i className={`fa-solid fa-chevron-${aberto === i ? 'up' : 'down'} faq__icon`} />
               </button>
-              {aberto === i && (
-                <p style={{ padding: '0 0 20px', color: '#555', lineHeight: 1.7, fontSize: 15 }}>{p.r}</p>
-              )}
+              {aberto === i && <p className="faq__answer">{p.r}</p>}
             </div>
           ))}
         </div>

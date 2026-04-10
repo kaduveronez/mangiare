@@ -12,14 +12,14 @@ const WHATSAPP_URL = 'https://wa.me/5547996266842?text=Ol%C3%A1!+Gostaria+de+sol
 function Intro() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
-    <section style={{ background: 'var(--color-creme)', padding: 'var(--space-section-y) 0' }}>
+    <section className="intro-section">
       <div className="container" ref={ref}>
-        <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }} className="fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-bordo)', marginBottom: 16 }}>ALIMENTAÇÃO CORPORATIVA</p>
-          <h2 className="section-title" style={{ color: 'var(--color-verde)', marginBottom: 20 }}>
+        <div className="intro-section__inner fade-in-up">
+          <p className="section-label section-label--bordo intro-section__label">ALIMENTAÇÃO CORPORATIVA</p>
+          <h2 className="section-title section-title--verde intro-section__title">
             Duas soluções. Um único nível de exigência.
           </h2>
-          <p style={{ fontSize: 17, color: '#555', lineHeight: 1.8 }}>
+          <p className="intro-section__text">
             Seja qual for o tamanho da sua empresa, o padrão Mangiare não muda: cardápio por nutricionista, ingredientes frescos, entrega pontual em Hot Box e segurança alimentar sem negociação. Escolha a modalidade que mais se encaixa na sua operação.
           </p>
         </div>
@@ -73,50 +73,50 @@ function ComoFunciona() {
     { num: '05', title: 'Acompanhamento contínuo', text: 'Nossa nutricionista realiza visitas quinzenais para avaliar aceitação, coletar feedbacks e ajustar o cardápio conforme necessário.' },
   ];
   return (
-    <section style={{ background: 'var(--color-verde)', padding: 'var(--space-section-y) 0' }}>
+    <section className="como-funciona">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>O PROCESSO</p>
-          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Como começar com a Mangiare</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--dourado">O PROCESSO</p>
+          <h2 className="section-title section-title--creme">Como começar com a Mangiare</h2>
         </div>
         <div className="bento-processo">
-          {/* 01 — destaque grande: bordo escuro */}
-          <div className="fade-in-up bento-processo__destaque" style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(135deg, #2a0610 0%, #5c1020 100%)', border: '1px solid rgba(245,185,53,0.15)', padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-            <i className="fa-solid fa-magnifying-glass" style={{ position: 'absolute', bottom: -16, right: -12, fontSize: 160, color: '#fff', opacity: 0.06, pointerEvents: 'none', lineHeight: 1 }} />
-            <span style={{ position: 'relative', fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'rgba(245,185,53,0.7)', marginBottom: 16, display: 'block' }}>01</span>
-            <h3 style={{ position: 'relative', fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 22, marginBottom: 12 }}>{passos[0].title}</h3>
-            <p style={{ position: 'relative', color: 'rgba(245,235,220,0.65)', lineHeight: 1.7, fontSize: 15 }}>{passos[0].text}</p>
+          {/* 01 — destaque grande */}
+          <div className="bento-card bento-card--destaque bento-processo__destaque fade-in-up">
+            <i className="fa-solid fa-magnifying-glass bento-card__bg-icon" style={{ bottom: -16, right: -12, fontSize: 160 }} />
+            <span className="bento-card__num">01</span>
+            <h3 className="bento-card__title">{passos[0].title}</h3>
+            <p className="bento-card__text">{passos[0].text}</p>
           </div>
-          {/* 02: preto com leve tint bordo */}
-          <div className="fade-in-up" style={{ position: 'relative', overflow: 'hidden', transitionDelay: '80ms', background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0d10 100%)', border: '1px solid rgba(255,255,255,0.05)', padding: '28px 24px' }}>
-            <i className="fa-solid fa-file-lines" style={{ position: 'absolute', bottom: -10, right: -8, fontSize: 120, color: '#fff', opacity: 0.06, pointerEvents: 'none', lineHeight: 1 }} />
-            <span style={{ position: 'relative', fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'rgba(245,185,53,0.7)', display: 'block', marginBottom: 10 }}>02</span>
-            <h3 style={{ position: 'relative', fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 18, marginBottom: 8 }}>{passos[1].title}</h3>
-            <p style={{ position: 'relative', color: 'rgba(245,235,220,0.55)', lineHeight: 1.6, fontSize: 14 }}>{passos[1].text}</p>
+          {/* 02 */}
+          <div className="bento-card bento-card--dark fade-in-up" style={{ transitionDelay: '80ms' }}>
+            <i className="fa-solid fa-file-lines bento-card__bg-icon" style={{ bottom: -10, right: -8, fontSize: 120 }} />
+            <span className="bento-card__num">02</span>
+            <h3 className="bento-card__title bento-card__title--sm">{passos[1].title}</h3>
+            <p className="bento-card__text bento-card__text--sm">{passos[1].text}</p>
           </div>
-          {/* 03: verde mais escuro que o fundo da seção */}
-          <div className="fade-in-up" style={{ position: 'relative', overflow: 'hidden', transitionDelay: '160ms', background: 'linear-gradient(135deg, #0a1a10 0%, #0f2818 100%)', border: '1px solid rgba(245,185,53,0.1)', padding: '28px 24px' }}>
-            <i className="fa-solid fa-utensils" style={{ position: 'absolute', bottom: -10, right: -8, fontSize: 120, color: 'var(--color-dourado)', opacity: 0.1, pointerEvents: 'none', lineHeight: 1 }} />
-            <span style={{ position: 'relative', fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'rgba(245,185,53,0.7)', display: 'block', marginBottom: 10 }}>03</span>
-            <h3 style={{ position: 'relative', fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 18, marginBottom: 8 }}>{passos[2].title}</h3>
-            <p style={{ position: 'relative', color: 'rgba(245,235,220,0.55)', lineHeight: 1.6, fontSize: 14 }}>{passos[2].text}</p>
+          {/* 03 */}
+          <div className="bento-card bento-card--verde-escuro fade-in-up" style={{ transitionDelay: '160ms' }}>
+            <i className="fa-solid fa-utensils bento-card__bg-icon bento-card__bg-icon--dourado" style={{ bottom: -10, right: -8, fontSize: 120 }} />
+            <span className="bento-card__num">03</span>
+            <h3 className="bento-card__title bento-card__title--sm">{passos[2].title}</h3>
+            <p className="bento-card__text bento-card__text--sm">{passos[2].text}</p>
           </div>
-          {/* 04 — wide: dourado escuro → dourado */}
-          <div className="fade-in-up bento-processo__wide" style={{ position: 'relative', overflow: 'hidden', transitionDelay: '240ms', background: 'linear-gradient(135deg, #6b4a00 0%, #c49000 100%)', padding: '28px 32px', display: 'flex', gap: 24, alignItems: 'center' }}>
-            <i className="fa-solid fa-truck" style={{ position: 'absolute', bottom: -14, right: -10, fontSize: 150, color: '#000', opacity: 0.08, pointerEvents: 'none', lineHeight: 1 }} />
-            <span style={{ position: 'relative', fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'rgba(0,0,0,0.3)', flexShrink: 0 }}>04</span>
-            <div style={{ position: 'relative' }}>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-preto)', fontSize: 19, marginBottom: 6 }}>{passos[3].title}</h3>
-              <p style={{ color: 'rgba(0,0,0,0.6)', lineHeight: 1.6, fontSize: 14 }}>{passos[3].text}</p>
+          {/* 04 — wide */}
+          <div className="bento-card bento-card--dourado bento-processo__wide fade-in-up" style={{ transitionDelay: '240ms' }}>
+            <i className="fa-solid fa-truck bento-card__bg-icon bento-card__bg-icon--dark" style={{ bottom: -14, right: -10, fontSize: 150 }} />
+            <span className="bento-card__num bento-card__num--inline bento-card__num--preto">04</span>
+            <div className="bento-card__body">
+              <h3 className="bento-card__title bento-card__title--preto">{passos[3].title}</h3>
+              <p className="bento-card__text bento-card__text--preto">{passos[3].text}</p>
             </div>
           </div>
-          {/* 05 — full: bordo escuro → preto */}
-          <div className="fade-in-up bento-processo__full" style={{ position: 'relative', overflow: 'hidden', transitionDelay: '320ms', background: 'linear-gradient(135deg, #1e0810 0%, #3d1020 50%, #0a0a0a 100%)', border: '1px solid rgba(245,185,53,0.1)', padding: '28px 32px', display: 'flex', gap: 28, alignItems: 'center' }}>
-            <i className="fa-solid fa-chart-line" style={{ position: 'absolute', bottom: -16, right: 32, fontSize: 150, color: '#fff', opacity: 0.05, pointerEvents: 'none', lineHeight: 1 }} />
-            <span style={{ position: 'relative', fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'rgba(245,185,53,0.7)', flexShrink: 0 }}>05</span>
-            <div style={{ position: 'relative' }}>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 19, marginBottom: 6 }}>{passos[4].title}</h3>
-              <p style={{ color: 'rgba(245,235,220,0.55)', lineHeight: 1.6, fontSize: 14 }}>{passos[4].text}</p>
+          {/* 05 — full */}
+          <div className="bento-card bento-card--escuro bento-processo__full fade-in-up" style={{ transitionDelay: '320ms' }}>
+            <i className="fa-solid fa-chart-line bento-card__bg-icon" style={{ bottom: -16, right: 32, fontSize: 150, opacity: 0.05 }} />
+            <span className="bento-card__num bento-card__num--inline">05</span>
+            <div className="bento-card__body">
+              <h3 className="bento-card__title bento-card__title--preto" style={{ color: 'var(--color-creme)' }}>{passos[4].title}</h3>
+              <p className="bento-card__text bento-card__text--sm">{passos[4].text}</p>
             </div>
           </div>
         </div>
@@ -165,17 +165,17 @@ function SegmentosAtendidos() {
     { icon: 'fa-solid fa-screwdriver-wrench', label: 'Serviços' },
   ];
   return (
-    <section style={{ background: 'var(--color-preto)', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--preto">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>SEGMENTOS</p>
-          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Atendemos sua empresa, seja qual for o setor</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--dourado">SEGMENTOS</p>
+          <h2 className="section-title section-title--creme">Atendemos sua empresa, seja qual for o setor</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginTop: 48 }}>
+        <div className="segmentos__grid">
           {segmentos.map((s, i) => (
-            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 60}ms`, textAlign: 'center', padding: '28px 16px', background: 'rgba(255,255,255,0.04)', borderBottom: '2px solid var(--color-dourado)' }}>
-              <i className={s.icon} style={{ fontSize: 28, color: 'var(--color-dourado)', marginBottom: 12, display: 'block' }} />
-              <span style={{ color: 'var(--color-creme)', fontSize: 14, fontWeight: 600 }}>{s.label}</span>
+            <div key={i} className="segmento-card fade-in-up" style={{ transitionDelay: `${i * 60}ms` }}>
+              <i className={`${s.icon} segmento-card__icon`} />
+              <span className="segmento-card__label">{s.label}</span>
             </div>
           ))}
         </div>
@@ -211,26 +211,20 @@ function FAQ() {
     { q: 'Como funciona a precificação?', r: 'O valor por refeição varia conforme o volume contratado, cardápio escolhido e frequência de entrega. Solicite uma cotação personalizada sem compromisso.' },
   ];
   return (
-    <section style={{ background: 'var(--color-creme)', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--creme">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-bordo)' }}>DÚVIDAS FREQUENTES</p>
-          <h2 className="section-title" style={{ color: 'var(--color-verde)' }}>Perguntas frequentes</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--bordo">DÚVIDAS FREQUENTES</p>
+          <h2 className="section-title section-title--verde">Perguntas frequentes</h2>
         </div>
-        <div style={{ maxWidth: 800, margin: '48px auto 0' }}>
+        <div className="faq__list">
           {perguntas.map((p, i) => (
-            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 60}ms`, borderBottom: '1px solid #ddd' }}>
-              <button
-                onClick={() => setAberto(aberto === i ? null : i)}
-                style={{ width: '100%', textAlign: 'left', padding: '20px 0', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}
-                aria-expanded={aberto === i}
-              >
-                <span style={{ fontWeight: 600, fontSize: 16, color: 'var(--color-verde)', lineHeight: 1.4 }}>{p.q}</span>
-                <i className={`fa-solid fa-chevron-${aberto === i ? 'up' : 'down'}`} style={{ flexShrink: 0, color: 'var(--color-bordo)' }} />
+            <div key={i} className="faq__item fade-in-up" style={{ transitionDelay: `${i * 60}ms` }}>
+              <button className="faq__btn" onClick={() => setAberto(aberto === i ? null : i)} aria-expanded={aberto === i}>
+                <span className="faq__question">{p.q}</span>
+                <i className={`fa-solid fa-chevron-${aberto === i ? 'up' : 'down'} faq__icon`} />
               </button>
-              {aberto === i && (
-                <p style={{ padding: '0 0 20px', color: '#555', lineHeight: 1.7, fontSize: 15 }}>{p.r}</p>
-              )}
+              {aberto === i && <p className="faq__answer">{p.r}</p>}
             </div>
           ))}
         </div>
@@ -257,15 +251,15 @@ function ClientesSolucoes() {
 function CTASolucoes() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
-    <section style={{ background: 'var(--color-bordo)', padding: '64px 0', textAlign: 'center' }}>
+    <section className="cta-section">
       <div className="container" ref={ref}>
-        <h2 className="section-title fade-in-up" style={{ color: 'var(--color-creme)', marginBottom: 16 }}>
+        <h2 className="section-title section-title--creme fade-in-up" style={{ marginBottom: 16 }}>
           Empresas de referência em Joinville já fazem parte. Você quer ser a próxima?
         </h2>
-        <p className="fade-in-up" style={{ color: 'rgba(245,239,200,0.8)', fontSize: 17, maxWidth: 560, margin: '0 auto 32px', transitionDelay: '80ms' }}>
+        <p className="cta-section__text fade-in-up" style={{ transitionDelay: '80ms' }}>
           Solicite uma cotação personalizada e descubra que garantir boa alimentação para seu time é mais simples — e mais barato — do que você imagina.
         </p>
-        <div className="fade-in-up" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '160ms' }}>
+        <div className="btn-group fade-in-up" style={{ transitionDelay: '160ms' }}>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Falar no WhatsApp</a>
           <Link to="/contato" className="btn-outline btn-outline--light">Solicitar Cotação</Link>
         </div>

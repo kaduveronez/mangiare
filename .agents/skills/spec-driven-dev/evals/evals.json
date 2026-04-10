@@ -1,0 +1,49 @@
+{
+  "skill_name": "spec-driven-dev",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Preciso criar um sistema de agendamento online para uma barbearia. O cliente escolhe o barbeiro, o horário e o serviço. Tem que ter login. O barbeiro pode bloquear horários.",
+      "expected_output": "Documento spec.md completo com todas as 5 seções obrigatórias",
+      "files": [],
+      "expectations": [
+        "O output contém seção 'Visão Geral do Escopo' com pelo menos 50 palavras",
+        "O output contém seção 'O que este software NÃO faz' com pelo menos 3 exclusões",
+        "O output contém tabela de Rotas/Páginas com pelo menos 5 rotas",
+        "O output contém Componentização Visual com componentes nomeados para cada rota",
+        "O output contém tabela de Comportamentos com IDs (BHV-XXX) e descrições precisas (não vagas)",
+        "O output contém seção de Regras de Negócio com regra Thin Client/Fat Server",
+        "Nenhum comportamento usa descrições vagas como 'o usuário edita' sem especificar o que acontece no servidor"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Já tenho a spec da barbearia aprovada. Quebra em issues.",
+      "expected_output": "Lista de issues fragmentadas seguindo as regras de atomicidade",
+      "files": [],
+      "expectations": [
+        "Issues de infraestrutura aparecem primeiro (banco, auth, etc.)",
+        "Cada rota/página tem uma issue de protótipo visual separada (sem lógica de backend)",
+        "Cada comportamento tem uma issue isolada (nunca agrupados)",
+        "Toda issue tem: tipo, descrição, critérios de aceite verificáveis e dependências",
+        "Nenhuma issue mistura frontend e backend na mesma tarefa",
+        "IDs seguem padrão ISSUE-XXX sequencial"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Faz o plano de execução para a ISSUE de 'Fazer Agendamento' (BHV-003). O projeto usa Next.js 14, Prisma e PostgreSQL.",
+      "expected_output": "Plano de execução completo sem código fonte",
+      "files": [],
+      "expectations": [
+        "O plano NÃO contém código fonte funcional (apenas types/interfaces como referência são aceitos)",
+        "Contém cenários: caminho feliz, pelo menos 2 edge cases e pelo menos 2 tratativas de erro",
+        "Contém tabela de estrutura de dados com entidades e campos",
+        "Lista arquivos a CRIAR com caminho exato e finalidade",
+        "Lista arquivos a MODIFICAR com coluna 'O que Mantém Intacto'",
+        "Lista arquivos que NÃO devem ser tocados",
+        "Declara agente recomendado (backend e/ou frontend)"
+      ]
+    }
+  ]
+}

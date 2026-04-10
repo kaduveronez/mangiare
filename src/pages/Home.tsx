@@ -52,13 +52,13 @@ function Numeros() {
     { numero: '100%', label: 'Supervisionado por nutricionista' },
   ];
   return (
-    <section style={{ background: 'var(--color-bordo)', padding: '48px 0' }}>
+    <section className="numeros">
       <div className="container" ref={ref}>
-        <div className="metricas" style={{ justifyContent: 'space-around', flexWrap: 'wrap', gap: 32 }}>
+        <div className="metricas">
           {stats.map((s, i) => (
-            <div key={i} className="metrica fade-in-up" style={{ transitionDelay: `${i * 80}ms`, alignItems: 'center', textAlign: 'center' }}>
-              <span className="metrica__numero" style={{ color: 'var(--color-dourado)', fontSize: 'clamp(36px, 5vw, 56px)' }}>{s.numero}</span>
-              <span className="metrica__label" style={{ color: 'var(--color-creme)', fontSize: 15, marginTop: 4 }}>{s.label}</span>
+            <div key={i} className="metrica fade-in-up" style={{ transitionDelay: `${i * 80}ms` }}>
+              <span className="metrica__numero">{s.numero}</span>
+              <span className="metrica__label">{s.label}</span>
             </div>
           ))}
         </div>
@@ -86,7 +86,7 @@ function SobreResumo() {
               As empresas que confiam na Mangiare sabem que alimentação não é custo operacional. É investimento em gente.
             </p>
             <span className="sobre__badge">30+ anos de experiência</span>
-            <div style={{ marginTop: 24 }}>
+            <div className="sobre__actions">
               <Link to="/quem-somos" className="btn-outline" aria-label="Conheça nossa história">Conheça nossa história →</Link>
             </div>
           </div>
@@ -108,21 +108,21 @@ function ComoFunciona() {
     { num: '04', icon: 'fa-solid fa-truck', title: 'Entregamos pontualmente', text: 'Nossa frota própria de Hot Box garante que as refeições chegam na temperatura ideal, no horário combinado, todos os dias.' },
   ];
   return (
-    <section style={{ background: 'var(--color-verde)', padding: 'var(--space-section-y) 0' }}>
+    <section className="como-funciona">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>COMO FUNCIONA</p>
-          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Do pedido ao prato, simples assim</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--dourado">COMO FUNCIONA</p>
+          <h2 className="section-title section-title--creme">Do pedido ao prato, simples assim</h2>
         </div>
         <div className="servicos__grid servicos__grid--4col" style={{ marginTop: 48 }}>
           {passos.map((p, i) => (
-            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 100}ms`, textAlign: 'center', padding: '0 16px' }}>
-              <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)', marginBottom: 12 }}>{p.num}</div>
-              <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(245,185,53,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-                <i className={p.icon} style={{ fontSize: 22, color: 'var(--color-dourado)' }} />
+            <div key={i} className="como-funciona__step fade-in-up" style={{ transitionDelay: `${i * 100}ms` }}>
+              <div className="como-funciona__num">{p.num}</div>
+              <div className="como-funciona__icon-wrap">
+                <i className={p.icon} />
               </div>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'var(--color-creme)', marginBottom: 10 }}>{p.title}</h3>
-              <p style={{ color: '#a0b8b0', fontSize: 15, lineHeight: 1.6 }}>{p.text}</p>
+              <h3 className="como-funciona__title">{p.title}</h3>
+              <p className="como-funciona__text">{p.text}</p>
             </div>
           ))}
         </div>
@@ -188,20 +188,22 @@ function DiferenciaisSection() {
 function BannerCTA() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
-    <section style={{ position: 'relative', overflow: 'hidden' }}>
-      <img src={fotoCozinha} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} aria-hidden="true" />
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.75)' }} />
-      <div className="container" ref={ref} style={{ position: 'relative', zIndex: 1, padding: '80px var(--container-px)', textAlign: 'center' }}>
-        <p className="section-label fade-in-up" style={{ color: 'var(--color-dourado)', marginBottom: 16 }}>CHEGA DE RECLAMAÇÃO DE COMIDA</p>
-        <h2 className="section-title fade-in-up" style={{ color: 'var(--color-creme)', marginBottom: 20, transitionDelay: '80ms' }}>
-          Sua empresa ainda não oferece esse nível de alimentação?
-        </h2>
-        <p className="fade-in-up" style={{ color: '#ccc', maxWidth: 600, margin: '0 auto 32px', fontSize: 17, transitionDelay: '160ms' }}>
-          Empresas que tratam alimentação como benefício estratégico saem na frente na atração e retenção de talentos. A Mangiare é o passo que faltava — sem burocracia, sem falhas, sem desculpas.
-        </p>
-        <div className="fade-in-up" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '240ms' }}>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Quero fazer parte</a>
-          <Link to="/contato" className="btn-outline btn-outline--light">Solicitar Cotação</Link>
+    <section className="banner-cta">
+      <img src={fotoCozinha} alt="" className="banner-cta__bg" aria-hidden="true" />
+      <div className="banner-cta__overlay" />
+      <div className="container" ref={ref}>
+        <div className="banner-cta__content">
+          <p className="section-label banner-cta__label fade-in-up">CHEGA DE RECLAMAÇÃO DE COMIDA</p>
+          <h2 className="section-title banner-cta__title fade-in-up" style={{ transitionDelay: '80ms' }}>
+            Sua empresa ainda não oferece esse nível de alimentação?
+          </h2>
+          <p className="banner-cta__text fade-in-up" style={{ transitionDelay: '160ms' }}>
+            Empresas que tratam alimentação como benefício estratégico saem na frente na atração e retenção de talentos. A Mangiare é o passo que faltava — sem burocracia, sem falhas, sem desculpas.
+          </p>
+          <div className="btn-group fade-in-up" style={{ transitionDelay: '240ms' }}>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Quero fazer parte</a>
+            <Link to="/contato" className="btn-outline btn-outline--light">Solicitar Cotação</Link>
+          </div>
         </div>
       </div>
     </section>
@@ -216,22 +218,22 @@ function Depoimentos() {
     { nome: 'Fernanda Lopes', cargo: 'Supervisora de Operações — Transportadora, Joinville', texto: 'Opero com turnos noturnos e horários atípicos. A Mangiare se adaptou sem reclamar. Já passei por três auditorias de segurança alimentar e nunca tivemos ocorrência. Para mim, isso não tem preço.' },
   ];
   return (
-    <section style={{ background: 'var(--color-creme)', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--creme">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up">
-          <p className="section-label" style={{ color: 'var(--color-bordo)' }}>DEPOIMENTOS</p>
-          <h2 className="section-title" style={{ color: 'var(--color-verde)' }}>O que nossos clientes dizem</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--bordo">DEPOIMENTOS</p>
+          <h2 className="section-title section-title--verde">O que nossos clientes dizem</h2>
         </div>
         <div className="servicos__grid servicos__grid--3col" style={{ marginTop: 48 }}>
           {depoimentos.map((d, i) => (
-            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 100}ms`, background: '#fff', padding: '32px 28px', borderTop: '4px solid var(--color-dourado)' }}>
-              <div style={{ marginBottom: 20 }}>
-                {[...Array(5)].map((_, j) => <i key={j} className="fa-solid fa-star" style={{ color: 'var(--color-dourado)', fontSize: 14, marginRight: 2 }} />)}
+            <div key={i} className="card-depoimento fade-in-up" style={{ transitionDelay: `${i * 100}ms` }}>
+              <div className="card-depoimento__stars">
+                {[...Array(5)].map((_, j) => <i key={j} className="fa-solid fa-star" />)}
               </div>
-              <p style={{ fontStyle: 'italic', color: '#555', lineHeight: 1.7, marginBottom: 24, fontSize: 15 }}>"{d.texto}"</p>
+              <p className="card-depoimento__texto">"{d.texto}"</p>
               <div>
-                <p style={{ fontWeight: 700, color: 'var(--color-bordo)', fontSize: 16 }}>{d.nome}</p>
-                <p style={{ fontSize: 13, color: '#888' }}>{d.cargo}</p>
+                <p className="card-depoimento__nome">{d.nome}</p>
+                <p className="card-depoimento__cargo">{d.cargo}</p>
               </div>
             </div>
           ))}
@@ -246,24 +248,20 @@ function GaleriaHome() {
   const fotos = [fotoPrato1, fotoPrato2, fotoPrato3, fotoEquipe];
   const alts = ['Prato completo com arroz, feijão e proteína', 'Marmita executiva Mangiare', 'Refeição balanceada com salada', 'Equipe Mangiare na cozinha'];
   return (
-    <section style={{ background: 'var(--color-preto)', padding: 'var(--space-section-y) 0' }}>
+    <section className="section--preto">
       <div className="container" ref={ref}>
-        <div className="diferenciais__header fade-in-up" style={{ marginBottom: 40 }}>
-          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>NOSSA COZINHA</p>
-          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Feito com carinho, servido com orgulho</h2>
+        <div className="section__header fade-in-up">
+          <p className="section-label section-label--dourado">NOSSA COZINHA</p>
+          <h2 className="section-title section-title--creme">Feito com carinho, servido com orgulho</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 8 }}>
+        <div className="galeria-home__grid">
           {fotos.map((foto, i) => (
-            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 80}ms`, overflow: 'hidden', aspectRatio: '4/3' }}>
-              <img src={foto} alt={alts[i]} loading="lazy" width={800} height={600}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 400ms', display: 'block' }}
-                onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.05)')}
-                onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
-              />
+            <div key={i} className="galeria-home__item fade-in-up" style={{ transitionDelay: `${i * 80}ms` }}>
+              <img src={foto} alt={alts[i]} loading="lazy" width={800} height={600} />
             </div>
           ))}
         </div>
-        <div className="fade-in-up" style={{ textAlign: 'center', marginTop: 32 }}>
+        <div className="galeria-home__footer fade-in-up">
           <Link to="/solucoes/restaurante-marmitas" className="btn-outline btn-outline--light">Ver todos os pratos →</Link>
         </div>
       </div>

@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpecDrivenDevOutput",
+  "description": "Defines the structural contracts for each phase's output document.",
+  "type": "object",
+  "oneOf": [
+    {
+      "title": "SpecDocument",
+      "properties": {
+        "phase": { "const": "spec" },
+        "sections": {
+          "type": "object",
+          "required": [
+            "visao_geral",
+            "escopo_negativo",
+            "rotas_paginas",
+            "componentizacao_visual",
+            "comportamentos"
+          ],
+          "properties": {
+            "visao_geral": { "type": "string", "minLength": 50 },
+            "escopo_negativo": { "type": "string", "minLength": 20 },
+            "rotas_paginas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["rota", "descricao"],
+                "properties": {
+                  "rota": { "type": "string" },
+                  "descricao": { "type": "string" }
+                }
+              },
+              "minItems": 1
+            },
+            "componentizacao_visual": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["pagina", "componentes"],
+                "properties": {
+                  "pagina": { "type": "string" },
+                  "componentes": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            "comportamentos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["acao", "descricao_precisa"],
+                "properties": {
+                  "acao": { "type": "string" },
+                  "descricao_precisa": { "type": "string" }
+                }
+              },
+              "minItems": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "IssueDocument",
+      "properties": {
+        "phase": { "const": "break" },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "titulo", "tipo", "descricao", "dependencias"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^ISSUE-\\d{3}$" },
+              "titulo": { "type": "string" },
+              "tipo": { "enum": ["prototipo-visual", "comportamento", "infraestrutura", "integracao"] },
+              "descricao": { "type": "string" },
+              "dependencias": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "minItems": 1
+        }
+      }
+    },
+    {
+      "title": "PlanDocument",
+      "properties": {
+        "phase": { "const": "plan" },
+        "plan": {
+          "type": "object",
+          "required": [
+            "issue_ref",
+            "cenarios",
+            "estrutura_dados",
+            "arquivos_criar",
+            "arquivos_modificar"
+          ],
+          "properties": {
+            "issue_ref": { "type": "string" },
+            "cenarios": {
+              "type": "object",
+              "required": ["caminho_feliz", "casos_extremos", "tratativa_erros"],
+              "properties": {
+                "caminho_feliz": { "type": "string" },
+                "casos_extremos": { "type": "array", "items": { "type": "string" } },
+                "tratativa_erros": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "estrutura_dados": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["entidade", "campos"],
+                "properties": {
+                  "entidade": { "type": "string" },
+                  "campos": { "type": "array", "items": { "type": "string" } }
+                }
+              }
+            },
+            "arquivos_criar": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["caminho", "finalidade"],
+                "properties": {
+                  "caminho": { "type": "string" },
+                  "finalidade": { "type": "string" }
+                }
+              }
+            },
+            "arquivos_modificar": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["caminho", "o_que_muda", "o_que_mantem"],
+                "properties": {
+                  "caminho": { "type": "string" },
+                  "o_que_muda": { "type": "string" },
+                  "o_que_mantem": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
