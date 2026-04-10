@@ -1443,7 +1443,7 @@ ul, ol { list-style: none; }
   background: var(--color-bordo);
   padding: 48px 0;
 }
-.numeros .metricas { justify-content: space-around; }
+.numeros .metricas { justify-content: space-around; margin-top: 0; }
 .numeros .metrica { align-items: center; text-align: center; }
 .numeros .metrica__numero { color: var(--color-dourado); font-size: clamp(36px, 5vw, 56px); }
 .numeros .metrica__label  { color: var(--color-creme); font-size: 15px; margin-top: 4px; text-transform: none; letter-spacing: 0; }
