@@ -312,17 +312,28 @@ function FormularioContato() {
             <button type="submit" className="btn-primary">Enviar Solicitação</button>
           </form>
           <div className="contato__info-col fade-in-up" style={{ transitionDelay: '100ms' }}>
-            <a href="tel:+5547996266842" className="contato__item" aria-label="Ligar para Mangiare">
-              <span className="contato__icon"><i className="fa-solid fa-phone" /></span><span className="contato__info">(47) 99626-6842</span>
-            </a>
-            <a href="mailto:mangiaree.refeicoes@gmail.com" className="contato__item" aria-label="E-mail Mangiare">
-              <span className="contato__icon"><i className="fa-solid fa-envelope" /></span><span className="contato__info">mangiaree.refeicoes@gmail.com</span>
-            </a>
-            <a href="https://instagram.com/mangiare.refeicoes" target="_blank" rel="noopener noreferrer" className="contato__item" aria-label="Instagram Mangiare">
-              <span className="contato__icon"><i className="fa-brands fa-instagram" /></span><span className="contato__info">@mangiare.refeicoes</span>
-            </a>
-            <div className="contato__item">
-              <span className="contato__icon"><i className="fa-solid fa-location-dot" /></span><span className="contato__info">R. Minas Gerais, 5300, Morro do Meio, Joinville - SC</span>
+            <div className="contato__items-wrap">
+              <a href="tel:+5547996266842" className="contato__item" aria-label="Ligar para Mangiare">
+                <span className="contato__icon"><i className="fa-solid fa-phone" /></span><span className="contato__info">(47) 99626-6842</span>
+              </a>
+              <a href="mailto:mangiaree.refeicoes@gmail.com" className="contato__item" aria-label="E-mail Mangiare">
+                <span className="contato__icon"><i className="fa-solid fa-envelope" /></span><span className="contato__info">mangiaree.refeicoes@gmail.com</span>
+              </a>
+              <a href="https://instagram.com/mangiare.refeicoes" target="_blank" rel="noopener noreferrer" className="contato__item" aria-label="Instagram Mangiare">
+                <span className="contato__icon"><i className="fa-brands fa-instagram" /></span><span className="contato__info">@mangiare.refeicoes</span>
+              </a>
+              <div className="contato__item">
+                <span className="contato__icon"><i className="fa-solid fa-location-dot" /></span><span className="contato__info">R. Minas Gerais, 5300, Morro do Meio, Joinville - SC</span>
+              </div>
+            </div>
+            <div className="contato__map">
+              <iframe
+                src="https://maps.google.com/maps?q=R.+Minas+Gerais,+5300,+Morro+do+Meio,+Joinville,+SC,+Brasil&output=embed&hl=pt-BR&z=16"
+                title="Localização Mangiare Refeições"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
