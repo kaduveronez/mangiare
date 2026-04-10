@@ -560,6 +560,7 @@ ul, ol { list-style: none; }
 @media (min-width: 768px) {
   .servicos__grid--2col { grid-template-columns: 1fr 1fr; }
   .servicos__grid--3col { grid-template-columns: 1fr 1fr 1fr; }
+  .servicos__grid--4col { grid-template-columns: repeat(4, 1fr); }
 }
 .card-servico {
   background: rgba(255,255,255,0.06);
@@ -879,7 +880,7 @@ ul, ol { list-style: none; }
 }
 .contato__item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
   padding: 16px;
   border-radius: var(--radius-btn);
@@ -892,9 +893,11 @@ ul, ol { list-style: none; }
 }
 .contato__item--light:hover { background: rgba(0,0,0,0.08); }
 .contato__icon {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--color-dourado);
   flex-shrink: 0;
+  width: 24px;
+  text-align: center;
 }
 .contato__info {
   font-size: 15px;
@@ -1345,6 +1348,62 @@ ul, ol { list-style: none; }
   color: rgba(245,239,200,0.70);
   transition: color 200ms;
 }
+/* ─── Bento Grids ─── */
+
+/* Processo (Soluções) — 3 colunas desktop */
+.bento-processo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.bento-processo__destaque {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.bento-processo__wide {
+  grid-column: 2 / 4;
+}
+.bento-processo__full {
+  grid-column: 1 / 4;
+}
+@media (max-width: 767px) {
+  .bento-processo {
+    grid-template-columns: 1fr;
+  }
+  .bento-processo__destaque,
+  .bento-processo__wide,
+  .bento-processo__full {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+/* Cadeia de qualidade (RefeicoesCorporativas) — 3 colunas desktop */
+.bento-cadeia {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.bento-cadeia__destaque {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.bento-cadeia__wide {
+  grid-column: 2 / 4;
+}
+@media (max-width: 767px) {
+  .bento-cadeia {
+    grid-template-columns: 1fr;
+  }
+  .bento-cadeia__destaque,
+  .bento-cadeia__wide {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
 .footer__credit a:hover { color: var(--color-dourado); }
 .footer__bottom {
   text-align: center;

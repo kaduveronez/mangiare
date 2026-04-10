@@ -6,6 +6,8 @@ import logoCreme from '../assets/logo-creme-watermark.png';
 import fotoEquipe from '../assets/foto-equipe.jpg';
 import fotoPrato1 from '../assets/foto-prato-1.jpg';
 import fotoPrato2 from '../assets/foto-prato-2.jpg';
+import fotoPrato3 from '../assets/foto-prato-3.jpg';
+import fotoCozinha from '../assets/foto-cozinha.jpg';
 import DiferenciaisGrid from '../components/DiferenciaisGrid';
 import ClientesLogoWall from '../components/ClientesLogoWall';
 import FormField from '../components/FormField';
@@ -30,13 +32,37 @@ function Hero() {
         <div className="hero__logo">
           <img src={logoAmarelo} alt="Logo Mangiare Refeições" className="hero__logo-img" />
         </div>
-        <h1 className="hero__tagline">Sabor, nutrição e segurança alimentar para o seu time</h1>
-        <p className="hero__subtitle">Refeições transportadas com qualidade e pontualidade para empresas em Joinville e região</p>
+        <h1 className="hero__tagline">O padrão de alimentação que seu time merece — e que as melhores empresas já oferecem</h1>
+        <p className="hero__subtitle">Mais de 500 refeições por dia. Cardápio por nutricionista. Zero falhas na pontualidade. É assim que empresas sérias alimentam seus times em Joinville.</p>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" aria-label="Solicitar cotação via WhatsApp">
-          Solicitar Cotação
+          Quero fazer parte
         </a>
       </div>
       <div className="hero__scroll" aria-hidden="true"><div className="hero__scroll-dot" /></div>
+    </section>
+  );
+}
+
+function Numeros() {
+  const ref = useFadeInUp<HTMLDivElement>();
+  const stats = [
+    { numero: '30+', label: 'Anos de experiência' },
+    { numero: '10+', label: 'Empresas atendidas' },
+    { numero: '500+', label: 'Refeições por dia' },
+    { numero: '100%', label: 'Supervisionado por nutricionista' },
+  ];
+  return (
+    <section style={{ background: 'var(--color-bordo)', padding: '48px 0' }}>
+      <div className="container" ref={ref}>
+        <div className="metricas" style={{ justifyContent: 'space-around', flexWrap: 'wrap', gap: 32 }}>
+          {stats.map((s, i) => (
+            <div key={i} className="metrica fade-in-up" style={{ transitionDelay: `${i * 80}ms`, alignItems: 'center', textAlign: 'center' }}>
+              <span className="metrica__numero" style={{ color: 'var(--color-dourado)', fontSize: 'clamp(36px, 5vw, 56px)' }}>{s.numero}</span>
+              <span className="metrica__label" style={{ color: 'var(--color-creme)', fontSize: 15, marginTop: 4 }}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -51,13 +77,13 @@ function SobreResumo() {
             <p className="sobre__welcome">Seja bem-vindo à</p>
             <h2 className="sobre__title">Mangiare Refeições!</h2>
             <p className="sobre__text">
-              Com uma trajetória de mais de 30 anos de experiência no ramo alimentício, somos uma empresa familiar
-              especializada no fornecimento de refeições transportadas, prezando pela excelência em sabor, nutrição
-              e segurança alimentar.
+              Empresa familiar com mais de 30 anos no mercado, a Mangiare nasceu de uma convicção simples: colaborador bem alimentado é colaborador presente, produtivo e orgulhoso da empresa em que trabalha.
             </p>
             <p className="sobre__text">
-              Atendemos empresas de todos os portes em Joinville e região, com cardápios desenvolvidos por nutricionista
-              e entrega diária em Hot Box, garantindo temperatura e qualidade até o momento do consumo.
+              Hoje, somos o parceiro de alimentação de escolha para gestores que não aceitam compromisso. Cardápios desenvolvidos por nutricionista, entrega diária em Hot Box e pontualidade que pode ser cronometrada — todos os dias, incluindo fins de semana.
+            </p>
+            <p className="sobre__text">
+              As empresas que confiam na Mangiare sabem que alimentação não é custo operacional. É investimento em gente.
             </p>
             <span className="sobre__badge">30+ anos de experiência</span>
             <div style={{ marginTop: 24 }}>
@@ -67,6 +93,38 @@ function SobreResumo() {
           <div className="fade-in-up" style={{ transitionDelay: '100ms' }}>
             <img src={fotoEquipe} alt="Equipe Mangiare Refeições na cozinha industrial" className="sobre__image" loading="lazy" width={960} height={720} />
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ComoFunciona() {
+  const ref = useFadeInUp<HTMLDivElement>();
+  const passos = [
+    { num: '01', icon: 'fa-solid fa-phone', title: 'Entre em contato', text: 'Fale conosco pelo WhatsApp ou preencha o formulário. Nossa equipe responde em até 24 horas com uma proposta personalizada.' },
+    { num: '02', icon: 'fa-solid fa-utensils', title: 'Personalizamos o cardápio', text: 'Nossa nutricionista elabora um cardápio equilibrado e variado, adaptado ao perfil e preferências da sua equipe.' },
+    { num: '03', icon: 'fa-solid fa-fire', title: 'Preparamos com cuidado', text: 'Cada refeição é produzida diariamente com ingredientes frescos e selecionados, seguindo rigorosos padrões de higiene.' },
+    { num: '04', icon: 'fa-solid fa-truck', title: 'Entregamos pontualmente', text: 'Nossa frota própria de Hot Box garante que as refeições chegam na temperatura ideal, no horário combinado, todos os dias.' },
+  ];
+  return (
+    <section style={{ background: 'var(--color-verde)', padding: 'var(--space-section-y) 0' }}>
+      <div className="container" ref={ref}>
+        <div className="diferenciais__header fade-in-up">
+          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>COMO FUNCIONA</p>
+          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Do pedido ao prato, simples assim</h2>
+        </div>
+        <div className="servicos__grid servicos__grid--4col" style={{ marginTop: 48 }}>
+          {passos.map((p, i) => (
+            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 100}ms`, textAlign: 'center', padding: '0 16px' }}>
+              <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)', marginBottom: 12 }}>{p.num}</div>
+              <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(245,185,53,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                <i className={p.icon} style={{ fontSize: 22, color: 'var(--color-dourado)' }} />
+              </div>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'var(--color-creme)', marginBottom: 10 }}>{p.title}</h3>
+              <p style={{ color: '#a0b8b0', fontSize: 15, lineHeight: 1.6 }}>{p.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -127,6 +185,92 @@ function DiferenciaisSection() {
   );
 }
 
+function BannerCTA() {
+  const ref = useFadeInUp<HTMLDivElement>();
+  return (
+    <section style={{ position: 'relative', overflow: 'hidden' }}>
+      <img src={fotoCozinha} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} aria-hidden="true" />
+      <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.75)' }} />
+      <div className="container" ref={ref} style={{ position: 'relative', zIndex: 1, padding: '80px var(--container-px)', textAlign: 'center' }}>
+        <p className="section-label fade-in-up" style={{ color: 'var(--color-dourado)', marginBottom: 16 }}>CHEGA DE RECLAMAÇÃO DE COMIDA</p>
+        <h2 className="section-title fade-in-up" style={{ color: 'var(--color-creme)', marginBottom: 20, transitionDelay: '80ms' }}>
+          Sua empresa ainda não oferece esse nível de alimentação?
+        </h2>
+        <p className="fade-in-up" style={{ color: '#ccc', maxWidth: 600, margin: '0 auto 32px', fontSize: 17, transitionDelay: '160ms' }}>
+          Empresas que tratam alimentação como benefício estratégico saem na frente na atração e retenção de talentos. A Mangiare é o passo que faltava — sem burocracia, sem falhas, sem desculpas.
+        </p>
+        <div className="fade-in-up" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '240ms' }}>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Quero fazer parte</a>
+          <Link to="/contato" className="btn-outline btn-outline--light">Solicitar Cotação</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Depoimentos() {
+  const ref = useFadeInUp<HTMLDivElement>();
+  const depoimentos = [
+    { nome: 'Ana Paula Ferreira', cargo: 'Gerente de RH — Indústria Têxtil, Joinville', texto: 'Antes da Mangiare, alimentação era meu maior problema na empresa. Reclamação todo dia. Agora, em dois anos, não recebi uma única queixa. As refeições chegam quentes, no horário, e o pessoal fala bem até para quem visita a fábrica.' },
+    { nome: 'Carlos Eduardo Matos', cargo: 'Diretor Administrativo — Construtora, região Norte SC', texto: 'Já renovei contrato quatro vezes. Não fico com fornecedor que decepciona. A Mangiare nunca me deu motivo para trocar — mesma qualidade no primeiro dia e no décimo segundo mês. Isso é raro no mercado.' },
+    { nome: 'Fernanda Lopes', cargo: 'Supervisora de Operações — Transportadora, Joinville', texto: 'Opero com turnos noturnos e horários atípicos. A Mangiare se adaptou sem reclamar. Já passei por três auditorias de segurança alimentar e nunca tivemos ocorrência. Para mim, isso não tem preço.' },
+  ];
+  return (
+    <section style={{ background: 'var(--color-creme)', padding: 'var(--space-section-y) 0' }}>
+      <div className="container" ref={ref}>
+        <div className="diferenciais__header fade-in-up">
+          <p className="section-label" style={{ color: 'var(--color-bordo)' }}>DEPOIMENTOS</p>
+          <h2 className="section-title" style={{ color: 'var(--color-verde)' }}>O que nossos clientes dizem</h2>
+        </div>
+        <div className="servicos__grid servicos__grid--3col" style={{ marginTop: 48 }}>
+          {depoimentos.map((d, i) => (
+            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 100}ms`, background: '#fff', padding: '32px 28px', borderTop: '4px solid var(--color-dourado)' }}>
+              <div style={{ marginBottom: 20 }}>
+                {[...Array(5)].map((_, j) => <i key={j} className="fa-solid fa-star" style={{ color: 'var(--color-dourado)', fontSize: 14, marginRight: 2 }} />)}
+              </div>
+              <p style={{ fontStyle: 'italic', color: '#555', lineHeight: 1.7, marginBottom: 24, fontSize: 15 }}>"{d.texto}"</p>
+              <div>
+                <p style={{ fontWeight: 700, color: 'var(--color-bordo)', fontSize: 16 }}>{d.nome}</p>
+                <p style={{ fontSize: 13, color: '#888' }}>{d.cargo}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GaleriaHome() {
+  const ref = useFadeInUp<HTMLDivElement>();
+  const fotos = [fotoPrato1, fotoPrato2, fotoPrato3, fotoEquipe];
+  const alts = ['Prato completo com arroz, feijão e proteína', 'Marmita executiva Mangiare', 'Refeição balanceada com salada', 'Equipe Mangiare na cozinha'];
+  return (
+    <section style={{ background: 'var(--color-preto)', padding: 'var(--space-section-y) 0' }}>
+      <div className="container" ref={ref}>
+        <div className="diferenciais__header fade-in-up" style={{ marginBottom: 40 }}>
+          <p className="section-label" style={{ color: 'var(--color-dourado)' }}>NOSSA COZINHA</p>
+          <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>Feito com carinho, servido com orgulho</h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 8 }}>
+          {fotos.map((foto, i) => (
+            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 80}ms`, overflow: 'hidden', aspectRatio: '4/3' }}>
+              <img src={foto} alt={alts[i]} loading="lazy" width={800} height={600}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 400ms', display: 'block' }}
+                onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+                onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="fade-in-up" style={{ textAlign: 'center', marginTop: 32 }}>
+          <Link to="/solucoes/restaurante-marmitas" className="btn-outline btn-outline--light">Ver todos os pratos →</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ClientesSection() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
@@ -157,8 +301,8 @@ function FormularioContato() {
     <section className="contato" id="contato">
       <div className="container" ref={ref}>
         <div className="contato__cta fade-in-up">
-          <h2 className="contato__title">Precisa de uma cotação?</h2>
-          <p className="contato__subtitle">Preencha o formulário ou fale conosco!</p>
+          <h2 className="contato__title">Solicite sua proposta — sem compromisso</h2>
+          <p className="contato__subtitle">Preencha o formulário e nossa equipe envia uma proposta personalizada em até 24 horas. Simples assim.</p>
         </div>
         <div className="contato__form-grid">
           <form className="contato__form fade-in-up" onSubmit={handleSubmit}>
@@ -204,9 +348,14 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Numeros />
       <SobreResumo />
+      <ComoFunciona />
       <ServicosHome />
       <DiferenciaisSection />
+      <BannerCTA />
+      <Depoimentos />
+      <GaleriaHome />
       <ClientesSection />
       <FormularioContato />
     </>
