@@ -32,10 +32,10 @@ function Hero() {
         <div className="hero__logo">
           <img src={logoAmarelo} alt="Logo Mangiare Refeições" className="hero__logo-img" />
         </div>
-        <h1 className="hero__tagline">O padrão de alimentação que seu time merece — e que as melhores empresas já oferecem</h1>
-        <p className="hero__subtitle">Mais de 500 refeições por dia. Cardápio por nutricionista. Zero falhas na pontualidade. É assim que empresas sérias alimentam seus times em Joinville.</p>
+        <h1 className="hero__tagline">Excelência em alimentação corporativa.</h1>
+        <p className="hero__subtitle">Cardápios nutritivos, pontualidade rigorosa e a confiança das maiores empresas de Joinville.</p>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" aria-label="Solicitar cotação via WhatsApp">
-          Quero fazer parte
+          Pedir Cotação
         </a>
       </div>
       <div className="hero__scroll" aria-hidden="true"><div className="hero__scroll-dot" /></div>
