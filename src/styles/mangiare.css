@@ -354,10 +354,9 @@ ul, ol { list-style: none; }
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 177.78vh; /* 16:9 aspect ratio */
-  height: 100vh;
-  min-width: 100%;
-  min-height: 100%;
+  /* Cobre qualquer proporção de tela: pega o maior entre 100vw e largura necessária para 16:9 */
+  width: max(100vw, 177.78vh);
+  height: max(100vh, 56.25vw);
   transform: translate(-50%, -50%);
   border: none;
   pointer-events: none;
