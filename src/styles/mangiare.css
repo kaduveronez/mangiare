@@ -856,11 +856,11 @@ ul, ol { list-style: none; }
 .contato__form-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0;
+  gap: 32px;
   align-items: stretch;
 }
 @media (min-width: 768px) {
-  .contato__form-grid { grid-template-columns: 1fr 1fr; }
+  .contato__form-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
 }
 .contato__form {
   display: flex;
