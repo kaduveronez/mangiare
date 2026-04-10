@@ -1,0 +1,5 @@
+{
+  "buildCommand": "echo -e \"\\n/* Remove Badge */\\n[href*='lovable.dev'], [id*='lovable-badge'] { display: none !important; pointer-events: none !important; }\" >> src/index.css && npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
