@@ -86,37 +86,36 @@ function Timeline() {
         </div>
 
         <div style={{ position: 'relative', marginTop: 48 }}>
-          {/* Linha horizontal */}
-          <div style={{ position: 'absolute', top: 28, left: 0, right: 0, height: 2, background: 'rgba(245,185,53,0.25)' }} aria-hidden="true" />
-
           {/* Setas de navegação */}
-          {canScrollLeft && (
-            <button onClick={() => scroll('left')} aria-label="Anterior" style={{ position: 'absolute', left: -8, top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 40, height: 40, background: 'var(--color-dourado)', color: 'var(--color-preto)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8, marginBottom: 16 }}>
+            <button onClick={() => scroll('left')} aria-label="Anterior" disabled={!canScrollLeft} style={{ width: 40, height: 40, background: canScrollLeft ? 'var(--color-dourado)' : 'rgba(245,185,53,0.3)', color: 'var(--color-preto)', border: 'none', cursor: canScrollLeft ? 'pointer' : 'default', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, transition: 'background 0.2s' }}>
               <i className="fa-solid fa-chevron-left" />
             </button>
-          )}
-          {canScrollRight && (
-            <button onClick={() => scroll('right')} aria-label="Próximo" style={{ position: 'absolute', right: -8, top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 40, height: 40, background: 'var(--color-dourado)', color: 'var(--color-preto)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>
+            <button onClick={() => scroll('right')} aria-label="Próximo" disabled={!canScrollRight} style={{ width: 40, height: 40, background: canScrollRight ? 'var(--color-dourado)' : 'rgba(245,185,53,0.3)', color: 'var(--color-preto)', border: 'none', cursor: canScrollRight ? 'pointer' : 'default', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, transition: 'background 0.2s' }}>
               <i className="fa-solid fa-chevron-right" />
             </button>
-          )}
+          </div>
 
-          {/* Carrossel */}
-          <div ref={scrollRef} style={{ display: 'flex', gap: 24, overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', paddingBottom: 8, WebkitOverflowScrolling: 'touch' }} className="timeline-carousel">
-            {marcos.map((m, i) => (
-              <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 80}ms`, flex: '0 0 280px', scrollSnapAlign: 'start', paddingTop: 48, position: 'relative' }}>
-                {/* Ponto na linha */}
-                <div style={{ position: 'absolute', top: 20, left: 24, width: 18, height: 18, background: 'var(--color-dourado)', border: '3px solid var(--color-verde)', boxSizing: 'border-box' }} />
-                <div style={{ background: 'rgba(255,255,255,0.06)', padding: '28px 24px', borderBottom: '3px solid var(--color-dourado)', height: '100%' }}>
-                  <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)' }}>{m.ano}</span>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 20, margin: '8px 0 10px' }}>{m.titulo}</h3>
-                  <p style={{ color: '#a0b8b0', fontSize: 15, lineHeight: 1.6 }}>{m.descricao}</p>
+          {/* Linha horizontal */}
+          <div style={{ position: 'relative' }}>
+            <div style={{ position: 'absolute', top: 28, left: 0, right: 0, height: 2, background: 'rgba(245,185,53,0.25)' }} aria-hidden="true" />
+
+            {/* Carrossel */}
+            <div ref={scrollRef} style={{ display: 'flex', gap: 16, overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', paddingBottom: 8, WebkitOverflowScrolling: 'touch' }} className="timeline-carousel">
+              {marcos.map((m, i) => (
+                <div key={i} className="fade-in-up timeline-carousel__card" style={{ transitionDelay: `${i * 80}ms`, scrollSnapAlign: 'start', paddingTop: 48, position: 'relative' }}>
+                  {/* Ponto na linha */}
+                  <div style={{ position: 'absolute', top: 20, left: 24, width: 18, height: 18, background: 'var(--color-dourado)', border: '3px solid var(--color-verde)', boxSizing: 'border-box' }} />
+                  <div style={{ background: 'rgba(255,255,255,0.06)', padding: '28px 24px', borderBottom: '3px solid var(--color-dourado)', height: '100%' }}>
+                    <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)' }}>{m.ano}</span>
+                    <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 20, margin: '8px 0 10px' }}>{m.titulo}</h3>
+                    <p style={{ color: '#a0b8b0', fontSize: 15, lineHeight: 1.6 }}>{m.descricao}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }
