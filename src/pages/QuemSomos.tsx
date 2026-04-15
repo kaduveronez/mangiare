@@ -107,11 +107,15 @@ function Timeline() {
               {marcos.map((m, i) => (
                 <div key={i} className="fade-in-up timeline-carousel__card" style={{ transitionDelay: `${i * 80}ms`, scrollSnapAlign: 'start', paddingTop: 48, position: 'relative' }}>
                   {/* Ponto na linha */}
-                  <div style={{ position: 'absolute', top: 20, left: 24, width: 18, height: 18, background: 'var(--color-dourado)', border: '3px solid var(--color-verde)', boxSizing: 'border-box' }} />
-                  <div style={{ background: 'rgba(255,255,255,0.06)', padding: '28px 24px', borderBottom: '3px solid var(--color-dourado)', height: '100%' }}>
-                    <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)' }}>{m.ano}</span>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 20, margin: '8px 0 10px' }}>{m.titulo}</h3>
-                    <p style={{ color: '#a0b8b0', fontSize: 15, lineHeight: 1.6 }}>{m.descricao}</p>
+                  <div style={{ position: 'absolute', top: 20, left: 24, width: 18, height: 18, background: 'var(--color-dourado)', border: '3px solid var(--color-verde)', boxSizing: 'border-box', zIndex: 1 }} />
+                  <div style={{ position: 'relative', overflow: 'hidden', borderBottom: '3px solid var(--color-dourado)', height: '100%' }}>
+                    <img src={m.foto} alt="" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,61,46,0.82)' }} />
+                    <div style={{ position: 'relative', padding: '28px 24px', zIndex: 1 }}>
+                      <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)' }}>{m.ano}</span>
+                      <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 20, margin: '8px 0 10px' }}>{m.titulo}</h3>
+                      <p style={{ color: 'rgba(245,239,200,0.85)', fontSize: 15, lineHeight: 1.6 }}>{m.descricao}</p>
+                    </div>
                   </div>
                 </div>
               ))}
