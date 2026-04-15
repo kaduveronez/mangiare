@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import PageHero from '../components/PageHero';
@@ -41,6 +41,10 @@ function Historia() {
 
 function Timeline() {
   const ref = useFadeInUp<HTMLDivElement>();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
   const marcos = [
     { ano: '1993', titulo: 'O início de tudo', descricao: 'A Mangiare nasce de uma cozinha familiar em Joinville, com o sonho de levar comida de verdade para os trabalhadores da cidade.' },
     { ano: '2000', titulo: 'Primeiros contratos corporativos', descricao: 'A empresa firma seus primeiros contratos com indústrias locais, marcando a transição para o atendimento corporativo de médio porte.' },
@@ -49,24 +53,68 @@ function Timeline() {
     { ano: '2020', titulo: 'Expansão regional', descricao: 'Amplia a área de atendimento para municípios vizinhos, investindo em frota própria de Hot Box para garantir qualidade na entrega.' },
     { ano: 'Hoje', titulo: 'Referência em SC', descricao: 'Reconhecida como referência em refeições transportadas no norte de Santa Catarina, com mais de 500 refeições entregues diariamente.' },
   ];
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  };
+
+  const scroll = (dir: 'left' | 'right') => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.7;
+    el.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    return () => { el.removeEventListener('scroll', checkScroll); window.removeEventListener('resize', checkScroll); };
+  }, []);
+
   return (
-    <section style={{ background: 'var(--color-verde)', padding: 'var(--space-section-y) 0' }}>
+    <section style={{ background: 'var(--color-verde)', padding: 'var(--space-section-y) 0', overflow: 'hidden' }}>
       <div className="container" ref={ref}>
         <div className="diferenciais__header fade-in-up">
           <p className="section-label" style={{ color: 'var(--color-dourado)' }}>NOSSA TRAJETÓRIA</p>
           <h2 className="section-title" style={{ color: 'var(--color-creme)' }}>30 anos escrevendo história</h2>
         </div>
-        <div style={{ marginTop: 56, position: 'relative' }}>
-          <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: 2, background: 'rgba(245,185,53,0.3)', transform: 'translateX(-50%)' }} aria-hidden="true" />
-          {marcos.map((m, i) => (
-            <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 100}ms`, display: 'flex', justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end', marginBottom: 40, position: 'relative' }}>
-              <div style={{ width: '45%', background: 'rgba(255,255,255,0.06)', padding: '24px 28px', borderLeft: i % 2 === 0 ? '3px solid var(--color-dourado)' : 'none', borderRight: i % 2 !== 0 ? '3px solid var(--color-dourado)' : 'none' }}>
-                <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)' }}>{m.ano}</span>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 20, margin: '8px 0 10px' }}>{m.titulo}</h3>
-                <p style={{ color: '#a0b8b0', fontSize: 15, lineHeight: 1.6 }}>{m.descricao}</p>
+
+        <div style={{ position: 'relative', marginTop: 48 }}>
+          {/* Linha horizontal */}
+          <div style={{ position: 'absolute', top: 28, left: 0, right: 0, height: 2, background: 'rgba(245,185,53,0.25)' }} aria-hidden="true" />
+
+          {/* Setas de navegação */}
+          {canScrollLeft && (
+            <button onClick={() => scroll('left')} aria-label="Anterior" style={{ position: 'absolute', left: -8, top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 40, height: 40, background: 'var(--color-dourado)', color: 'var(--color-preto)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>
+              <i className="fa-solid fa-chevron-left" />
+            </button>
+          )}
+          {canScrollRight && (
+            <button onClick={() => scroll('right')} aria-label="Próximo" style={{ position: 'absolute', right: -8, top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 40, height: 40, background: 'var(--color-dourado)', color: 'var(--color-preto)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>
+              <i className="fa-solid fa-chevron-right" />
+            </button>
+          )}
+
+          {/* Carrossel */}
+          <div ref={scrollRef} style={{ display: 'flex', gap: 24, overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', paddingBottom: 8, WebkitOverflowScrolling: 'touch' }} className="timeline-carousel">
+            {marcos.map((m, i) => (
+              <div key={i} className="fade-in-up" style={{ transitionDelay: `${i * 80}ms`, flex: '0 0 280px', scrollSnapAlign: 'start', paddingTop: 48, position: 'relative' }}>
+                {/* Ponto na linha */}
+                <div style={{ position: 'absolute', top: 20, left: 24, width: 18, height: 18, background: 'var(--color-dourado)', border: '3px solid var(--color-verde)', boxSizing: 'border-box' }} />
+                <div style={{ background: 'rgba(255,255,255,0.06)', padding: '28px 24px', borderBottom: '3px solid var(--color-dourado)', height: '100%' }}>
+                  <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: 3, color: 'var(--color-dourado)' }}>{m.ano}</span>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-creme)', fontSize: 20, margin: '8px 0 10px' }}>{m.titulo}</h3>
+                  <p style={{ color: '#a0b8b0', fontSize: 15, lineHeight: 1.6 }}>{m.descricao}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
