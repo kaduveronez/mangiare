@@ -48,12 +48,12 @@ function Timeline() {
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const marcos = [
-    { ano: '1993', titulo: 'O início de tudo', descricao: 'A Mangiare nasce de uma cozinha familiar em Joinville, com o sonho de levar comida de verdade para os trabalhadores da cidade.' },
-    { ano: '2000', titulo: 'Primeiros contratos corporativos', descricao: 'A empresa firma seus primeiros contratos com indústrias locais, marcando a transição para o atendimento corporativo de médio porte.' },
-    { ano: '2008', titulo: 'Modernização da cozinha', descricao: 'Investimento em equipamentos industriais de ponta e implementação de rigoroso sistema de controle de qualidade alimentar.' },
-    { ano: '2015', titulo: 'Contratação de nutricionista', descricao: 'Passa a contar com nutricionista dedicada ao desenvolvimento de cardápios, elevando o padrão nutricional de todas as refeições.' },
-    { ano: '2020', titulo: 'Expansão regional', descricao: 'Amplia a área de atendimento para municípios vizinhos, investindo em frota própria de Hot Box para garantir qualidade na entrega.' },
-    { ano: 'Hoje', titulo: 'Referência em SC', descricao: 'Reconhecida como referência em refeições transportadas no norte de Santa Catarina, com mais de 500 refeições entregues diariamente.' },
+    { ano: '1993', titulo: 'O início de tudo', descricao: 'A Mangiare nasce de uma cozinha familiar em Joinville, com o sonho de levar comida de verdade para os trabalhadores da cidade.', foto: fotoCozinha },
+    { ano: '2000', titulo: 'Primeiros contratos corporativos', descricao: 'A empresa firma seus primeiros contratos com indústrias locais, marcando a transição para o atendimento corporativo de médio porte.', foto: fotoRefeitorio1 },
+    { ano: '2008', titulo: 'Modernização da cozinha', descricao: 'Investimento em equipamentos industriais de ponta e implementação de rigoroso sistema de controle de qualidade alimentar.', foto: fotoPreparo },
+    { ano: '2015', titulo: 'Contratação de nutricionista', descricao: 'Passa a contar com nutricionista dedicada ao desenvolvimento de cardápios, elevando o padrão nutricional de todas as refeições.', foto: fotoRefeitorio2 },
+    { ano: '2020', titulo: 'Expansão regional', descricao: 'Amplia a área de atendimento para municípios vizinhos, investindo em frota própria de Hot Box para garantir qualidade na entrega.', foto: fotoEntrega },
+    { ano: 'Hoje', titulo: 'Referência em SC', descricao: 'Reconhecida como referência em refeições transportadas no norte de Santa Catarina, com mais de 500 refeições entregues diariamente.', foto: fotoEquipe },
   ];
 
   const checkScroll = () => {
