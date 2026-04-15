@@ -6,6 +6,8 @@ import fotoEquipe from '../assets/foto-equipe.jpg';
 import fotoCozinha from '../assets/foto-cozinha.jpg';
 import fotoPreparo from '../assets/foto-preparo.jpg';
 import fotoEntrega from '../assets/foto-entrega.jpg';
+import fotoRefeitorio1 from '../assets/foto-refeitorio-1.jpg';
+import fotoRefeitorio2 from '../assets/foto-refeitorio-2.jpg';
 import logoCreme from '../assets/logo-creme-watermark.png';
 
 const WHATSAPP_URL = 'https://wa.me/5547996266842?text=Ol%C3%A1!+Gostaria+de+solicitar+uma+cota%C3%A7%C3%A3o.';
