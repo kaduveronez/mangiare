@@ -1996,3 +1996,6 @@ ul, ol { list-style: none; }
 .notfound__hint a:hover {
   color: var(--color-dourado);
 }
+
+/* Timeline carousel */
+.timeline-carousel::-webkit-scrollbar { display: none; }
