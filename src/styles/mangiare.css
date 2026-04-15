@@ -1999,3 +1999,11 @@ ul, ol { list-style: none; }
 
 /* Timeline carousel */
 .timeline-carousel::-webkit-scrollbar { display: none; }
+.timeline-carousel__card { flex: 0 0 280px; }
+
+@media (max-width: 480px) {
+  .timeline-carousel__card { flex: 0 0 85vw; }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .timeline-carousel__card { flex: 0 0 70vw; }
+}
