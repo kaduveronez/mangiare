@@ -40,9 +40,8 @@ function SolucoesCards() {
             </div>
             <h3 className="card-servico-big__title card-servico-big__title--dark">Restaurante & Marmitas</h3>
             <p className="card-servico-big__text card-servico-big__text--dark">
-              Refeições individuais com cardápio variado desenvolvido por nutricionista. Opção ideal para empresas
-              que não dispõem de refeitório próprio, com a mesma qualidade e cuidado na preparação.
-              Atendemos a partir de 50 marmitas por pedido.
+              Três modalidades para pessoa física e empresas: restaurante aberto ao público no nosso refeitório, marmitas
+              avulsas sob demanda e pacotes personalizados (semanais ou mensais) montados do seu jeito.
             </p>
             <span className="card-servico-big__link">Saiba mais →</span>
           </Link>

@@ -147,8 +147,8 @@ function ServicosHome() {
             </div>
             <h3 className="card-servico-big__title">Restaurante & Marmitas</h3>
             <p className="card-servico-big__text">
-              Refeições individuais com cardápio variado, preparadas com ingredientes frescos e acompanhamento nutricional.
-              Ideal para empresas que buscam praticidade sem abrir mão da qualidade.
+              Almoce no nosso refeitório, peça marmitas avulsas pelo WhatsApp ou monte um pacote personalizado para a sua semana.
+              Comida feita no dia, com ingredientes frescos, para quem quer comer bem sem complicação.
             </p>
             <span className="card-servico-big__link">Saiba mais →</span>
           </Link>
