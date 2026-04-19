@@ -15,8 +15,15 @@ function PostDestaque() {
       <div className="container" ref={ref}>
         <p className="section-label fade-in-up" style={{ color: 'var(--color-dourado)', marginBottom: 24 }}>ARTIGO EM DESTAQUE</p>
         <div className="sobre__grid fade-in-up" style={{ transitionDelay: '80ms' }}>
-          <div style={{ background: '#C9B5A0', minHeight: 280, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <i className="fa-solid fa-utensils" style={{ fontSize: 64, color: 'rgba(255,255,255,0.4)' }} />
+          <div style={{ minHeight: 280, overflow: 'hidden' }}>
+            <img
+              src={post.cover}
+              alt={post.title}
+              loading="lazy"
+              width={1280}
+              height={768}
+              style={{ width: '100%', height: '100%', minHeight: 280, objectFit: 'cover', display: 'block' }}
+            />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 16 }}>
             <span style={{ background: 'var(--color-dourado)', color: 'var(--color-preto)', padding: '4px 12px', fontSize: 12, fontWeight: 700, letterSpacing: 1, display: 'inline-block', width: 'fit-content' }}>{post.category}</span>
@@ -72,7 +79,14 @@ function PostsGrid() {
         <div className="blog__grid">
           {filtered.map((post, i) => (
             <Link key={post.slug} to={`/blog/${post.slug}`} className="card-post fade-in-up" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="card-post__thumbnail" style={{ background: '#C9B5A0' }} />
+              <div
+                className="card-post__thumbnail"
+                style={{
+                  backgroundImage: `url(${post.cover})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
               <div className="card-post__body">
                 <span className="card-post__category">{post.category}</span>
                 <h3 className="card-post__title">{post.title}</h3>
