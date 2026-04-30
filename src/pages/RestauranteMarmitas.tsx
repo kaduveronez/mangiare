@@ -32,10 +32,10 @@ function Intro() {
             <p className="section-label" style={{ color: 'var(--color-bordo)', marginBottom: 12 }}>RESTAURANTE & MARMITAS</p>
             <h2 className="sobre__title">Três jeitos de comer bem todos os dias</h2>
             <p className="sobre__text">
-              A mesma cozinha que abastece grandes empresas há mais de 30 anos também abre as portas para você. Seja almoçando no nosso refeitório, pedindo uma marmita avulsa para o trabalho ou montando um pacote mensal sob medida — a comida é sempre a mesma: feita no dia, com ingredientes frescos e tempero de quem cozinha de verdade.
+              A qualidade e o cuidado que abastecem grandes empresas há mais de 30 anos também abrem as portas para você. Seja almoçando em nosso restaurante, pedindo uma marmita avulsa para o trabalho ou garantindo praticidade com nossas marmitas congeladas, cada refeição é feita no dia, com ingredientes frescos e tempero de quem cozinha de verdade. Almoce conosco e sinta-se em casa, será um prazer ter você aqui.
             </p>
             <p className="sobre__text">
-              <strong>Restaurante</strong> para quem está por perto e quer almoçar sem pressa. <strong>Marmitas avulsas</strong> para quem prefere comer no escritório ou em casa. <strong>Pacotes personalizados</strong> para quem quer organizar a semana inteira sem ter que pensar.
+              <strong>Restaurante</strong> para quem está por perto e quer almoçar sem pressa. <strong>Marmitas avulsas</strong> para quem prefere comer no escritório ou em casa. <strong>Marmitas saudáveis congeladas</strong> para quem quer praticidade com saúde no dia a dia.
             </p>
           </div>
           <div className="fade-in-up" style={{ transitionDelay: '100ms' }}>
@@ -53,9 +53,9 @@ function TresModalidades() {
     {
       icon: 'fa-solid fa-utensils',
       titulo: 'Restaurante',
-      subtitulo: 'Almoce no nosso refeitório',
-      descricao: 'Nosso refeitório é aberto ao público de segunda a sexta, no horário do almoço. Cardápio do dia com proteína à escolha, arroz, feijão, guarnições, saladas variadas e sobremesa. Ambiente tranquilo, atendimento rápido e a mesma comida que servimos para nossos clientes corporativos.',
-      bullets: ['Aberto de seg a sex, das 11h às 14h', 'Self-service com cardápio do dia', 'Sobremesa e suco inclusos', 'Estacionamento no local'],
+      subtitulo: 'Almoce no nosso restaurante',
+      descricao: 'Nosso restaurante é aberto ao público de segunda a sábado, das 10h às 14h. Almoce conosco e sinta-se em casa, será um prazer receber você! Ambiente tranquilo, atendimento rápido e buffet livre ou por kg.',
+      bullets: ['Aberto de segunda a sábado, das 10h às 14h', 'Buffet livre e por kg com cardápio do dia', 'Sobremesa e suco inclusos', 'Estacionamento no local'],
       cta: 'Ver cardápio do dia',
     },
     {
@@ -63,16 +63,21 @@ function TresModalidades() {
       titulo: 'Marmitas avulsas',
       subtitulo: 'Peça quantas quiser, quando quiser',
       descricao: 'Sem fidelidade, sem mínimo de pedido alto. Peça 1, 5 ou 20 marmitas para retirar ou receber em casa/no trabalho. Ideal para quem trabalha em home office, equipes pequenas, eventos pontuais ou para quem só quer matar a saudade de comida caseira no meio da semana.',
-      bullets: ['Sem fidelidade — peça quando quiser', 'Retirada no local ou entrega', 'Embalagem térmica que mantém o calor', 'Pedido pelo WhatsApp até 10h do dia'],
+      bullets: ['Sem fidelidade — peça quando quiser', 'Retirada no local ou entrega', 'Embalagem térmica que mantém o calor', 'Entrega grátis no bairro Aventureiro'],
       cta: 'Pedir marmita avulsa',
     },
     {
-      icon: 'fa-solid fa-calendar-check',
-      titulo: 'Pacotes personalizados',
-      subtitulo: 'Monte sua rotina semanal ou mensal',
-      descricao: 'A solução para quem quer comer bem todo dia sem precisar pensar. Monte um pacote do seu jeito: quantas marmitas por semana, quais dias, com ou sem proteína específica, restrições alimentares atendidas. Pague no fechamento, receba sempre no horário combinado.',
-      bullets: ['Frequência sob medida (3x, 5x semana, etc)', 'Desconto progressivo por volume', 'Cardápio adaptável a restrições', 'Faturamento mensal facilitado'],
-      cta: 'Montar meu pacote',
+      icon: 'fa-solid fa-snowflake',
+      titulo: 'Marmitas Saudáveis Congeladas',
+      subtitulo: 'Praticidade com sabor e saúde',
+      descricao: 'Nossas marmitas fitness congeladas são elaboradas com ingredientes selecionados, balanceadas com 350g, elaboradas por nutricionista e preparadas com muito carinho para você manter sua dieta de forma prática, saborosa e saudável!',
+      bullets: [
+        '100% SAUDÁVEL: Ingredientes frescos e de qualidade',
+        'BALANCEADAS: Porções ideais para sua rotina',
+        'CONGELADAS: Prontas para facilitar seu dia',
+        'DELICIOSAS: Sabor caseiro — só descongelar e comer!',
+      ],
+      cta: 'Pedir marmitas congeladas',
     },
   ];
   return (
@@ -113,11 +118,10 @@ function TresModalidades() {
 function OQueInclui() {
   const ref = useFadeInUp<HTMLDivElement>();
   const componentes = [
-    { icon: 'fa-solid fa-drumstick-bite', titulo: 'Proteína do dia', descricao: 'Frango, carne bovina, peixe ou opção vegetariana — rodízio variado ao longo da semana, sempre fresco e bem temperado.' },
+    { icon: 'fa-solid fa-drumstick-bite', titulo: 'Proteína principal', descricao: 'São 2 opções de carnes de sua escolha, variando entre frango, carne bovina, suíno e peixe — rodízio semanal para variar o cardápio e atender diferentes preferências.' },
     { icon: 'fa-solid fa-bowl-rice', titulo: 'Arroz e feijão', descricao: 'A dupla clássica brasileira preparada todos os dias, com tempero artesanal da casa, sem conservantes.' },
     { icon: 'fa-solid fa-carrot', titulo: 'Guarnição variada', descricao: 'Massas, polentas, farofas, purês, legumes refogados — guarnição diferente todos os dias para nunca enjoar.' },
     { icon: 'fa-solid fa-leaf', titulo: 'Salada fresca', descricao: 'Folhas, tomate, pepino, cenoura e vegetais da estação, montados na hora para garantir o frescor e a crocância.' },
-    { icon: 'fa-solid fa-lemon', titulo: 'Sobremesa', descricao: 'Fruta da estação ou doce caseiro acompanha o cardápio — varia conforme a modalidade escolhida.' },
     { icon: 'fa-solid fa-wheat-awn-circle-exclamation', titulo: 'Restrições alimentares', descricao: 'Atendemos pedidos sem glúten, sem lactose, vegetarianos e vegano. Avise no pedido que adaptamos pra você.' },
   ];
   return (
@@ -231,6 +235,17 @@ function ComoPedir() {
         <div className="diferenciais__header fade-in-up">
           <p className="section-label" style={{ color: 'var(--color-bordo)' }}>SIMPLES ASSIM</p>
           <h2 className="section-title" style={{ color: 'var(--color-verde)' }}>Como pedir</h2>
+        </div>
+        <div className="fade-in-up" style={{ marginTop: 32, padding: '28px 24px', background: '#fff', borderTop: '4px solid var(--color-bordo)', textAlign: 'center', maxWidth: 760, margin: '32px auto 0' }}>
+          <p style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-verde)', fontSize: 20, lineHeight: 1.5, marginBottom: 20 }}>
+            <i className="fa-solid fa-arrow-down" style={{ color: 'var(--color-bordo)', marginRight: 8 }} />
+            Para realizar o seu pedido ou acessar o cardápio você pode clicar no link abaixo
+            <i className="fa-solid fa-arrow-down" style={{ color: 'var(--color-bordo)', marginLeft: 8 }} />
+          </p>
+          <a href="https://pedir.delivery/app/mangiarerefeicoesaventureiro/menu" target="_blank" rel="noopener noreferrer" className="btn-primary" aria-label="Acessar cardápio e fazer pedido">
+            <i className="fa-solid fa-utensils" style={{ marginRight: 8 }} />
+            Fazer pedido / Ver cardápio
+          </a>
         </div>
         <div className="servicos__grid servicos__grid--4col" style={{ marginTop: 48 }}>
           {passos.map((p, i) => (
