@@ -43,30 +43,6 @@ function Hero() {
   );
 }
 
-function Numeros() {
-  const ref = useFadeInUp<HTMLDivElement>();
-  const stats = [
-    { numero: '30+', label: 'Anos de experiência' },
-    { numero: '10+', label: 'Empresas atendidas' },
-    { numero: '500+', label: 'Refeições por dia' },
-    { numero: '100%', label: 'Supervisionado por nutricionista' },
-  ];
-  return (
-    <section className="numeros">
-      <div className="container" ref={ref}>
-        <div className="metricas">
-          {stats.map((s, i) => (
-            <div key={i} className="metrica fade-in-up" style={{ transitionDelay: `${i * 80}ms` }}>
-              <span className="metrica__numero">{s.numero}</span>
-              <span className="metrica__label">{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function SobreResumo() {
   const ref = useFadeInUp<HTMLDivElement>();
   return (
@@ -80,10 +56,10 @@ function SobreResumo() {
               Empresa familiar com mais de 30 anos no mercado, a Mangiare nasceu de uma convicção simples: colaborador bem alimentado é colaborador presente, produtivo e orgulhoso da empresa em que trabalha.
             </p>
             <p className="sobre__text">
-              Hoje, somos o parceiro de alimentação de escolha para gestores que não aceitam compromisso. Cardápios desenvolvidos por nutricionista, entrega diária em Hot Box e pontualidade que pode ser cronometrada — todos os dias, incluindo fins de semana.
+              Somos parceiros de empresas que buscam comida de verdade, caseira, e não industrializada. Cardápios desenvolvidos por nutricionista, entrega diária em Hot Box e pontualidade que pode ser cronometrada — todos os dias, incluindo fins de semana.
             </p>
             <p className="sobre__text">
-              As empresas que confiam na Mangiare sabem que alimentação não é custo operacional. É investimento em gente.
+              As empresas que confiam na Mangiare sabem que alimentação não é custo operacional. É investimento em pessoas.
             </p>
             <span className="sobre__badge">30+ anos de experiência</span>
             <div className="sobre__actions">
@@ -147,7 +123,7 @@ function ServicosHome() {
             </div>
             <h3 className="card-servico-big__title">Restaurante & Marmitas</h3>
             <p className="card-servico-big__text">
-              Almoce no nosso refeitório, peça marmitas avulsas pelo WhatsApp ou monte um pacote personalizado para a sua semana.
+              Almoce no nosso restaurante, peça marmitas avulsas pelo WhatsApp ou monte um pacote personalizado para a sua semana.
               Comida feita no dia, com ingredientes frescos, para quem quer comer bem sem complicação.
             </p>
             <span className="card-servico-big__link">Saiba mais →</span>
@@ -158,7 +134,7 @@ function ServicosHome() {
             </div>
             <h3 className="card-servico-big__title">Refeições Corporativas</h3>
             <p className="card-servico-big__text">
-              Soluções completas para empresas a partir de 50 refeições por pedido. Cardápio por nutricionista,
+              Soluções completas para empresas a partir de 30 refeições por pedido. Cardápio por nutricionista,
               entrega em Hot Box e total conformidade com normas de segurança alimentar.
             </p>
             <span className="card-servico-big__link">Saiba mais →</span>
@@ -198,7 +174,7 @@ function BannerCTA() {
             Sua empresa ainda não oferece esse nível de alimentação?
           </h2>
           <p className="banner-cta__text fade-in-up" style={{ transitionDelay: '160ms' }}>
-            Empresas que tratam alimentação como benefício estratégico saem na frente na atração e retenção de talentos. A Mangiare é o passo que faltava — sem burocracia, sem falhas, sem desculpas.
+            Empresas que tratam alimentação como benefício estratégico saem na frente na atração e retenção de talentos. A Mangiare é o passo que faltava — sem burocracia.
           </p>
           <div className="btn-group fade-in-up" style={{ transitionDelay: '240ms' }}>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Quero fazer parte</a>
