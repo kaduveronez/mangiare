@@ -202,7 +202,7 @@ function FAQ() {
   const ref = useFadeInUp<HTMLDivElement>();
   const [aberto, setAberto] = useState<number | null>(null);
   const perguntas = [
-    { q: 'Qual o número mínimo de refeições por pedido?', r: 'Atendemos a partir de 50 refeições por pedido. Para contratos corporativos recorrentes, trabalhamos com volumes variados conforme a necessidade da empresa.' },
+    { q: 'Qual o número mínimo de refeições por pedido?', r: 'Atendemos a partir de 30 refeições por pedido. Para contratos corporativos recorrentes, trabalhamos com volumes variados conforme a necessidade da empresa.' },
     { q: 'Vocês atendem finais de semana e feriados?', r: 'Sim! Realizamos entregas 7 dias por semana, incluindo sábados, domingos e feriados nacionais e estaduais. Nosso compromisso é garantir a alimentação do seu time todos os dias.' },
     { q: 'Como funciona a logística de entrega?', r: 'Utilizamos frota própria de Hot Box que mantém as refeições acima de 65°C durante todo o transporte. As entregas são realizadas em horários fixos, definidos previamente com cada cliente.' },
     { q: 'Posso personalizar o cardápio para minha empresa?', r: 'Sim! Nossa nutricionista elabora cardápios personalizados considerando as preferências da sua equipe, restrições alimentares e necessidades nutricionais específicas.' },
