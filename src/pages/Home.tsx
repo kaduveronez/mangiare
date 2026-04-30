@@ -304,7 +304,7 @@ function FormularioContato() {
             </div>
             <div className="contato__map">
               <iframe
-                src="https://maps.google.com/maps?q=R.+Minas+Gerais,+5300,+Morro+do+Meio,+Joinville,+SC,+Brasil&output=embed&hl=pt-BR&z=16"
+                src="https://maps.google.com/maps?q=R.+Lu%C3%ADsa+Deranh%C3%B3li+Koschnik,+731,+Aventureiro,+Joinville,+SC,+Brasil&output=embed&hl=pt-BR&z=16"
                 title="Localização Mangiare Refeições"
                 allowFullScreen
                 loading="lazy"
@@ -333,7 +333,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Numeros />
       <SobreResumo />
       <ComoFunciona />
       <ServicosHome />
