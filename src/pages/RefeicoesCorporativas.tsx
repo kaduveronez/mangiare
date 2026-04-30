@@ -23,14 +23,14 @@ function ArgumentoB2B() {
               Gestores que já passaram por fornecedores problemáticos sabem o custo real de uma refeição ruim: reclamação coletiva, queda de moral, absenteísmo, reunião de emergência.
             </p>
             <p className="sobre__text">
-              Atendemos empresas de todos os portes a partir de 50 refeições por pedido. Cardápio por nutricionista, entrega diária em Hot Box com temperatura controlada, conformidade total com normas sanitárias e um ponto de contato único para tudo. O seu trabalho é gerir pessoas — o nosso é garantir que elas almocem bem.
+              Atendemos empresas de todos os portes a partir de 30 refeições por pedido. Cardápio por nutricionista, entrega diária em Hot Box com temperatura controlada, conformidade total com normas sanitárias e um ponto de contato único para tudo. O seu trabalho é gerir pessoas — o nosso é garantir que elas almocem bem.
             </p>
             <p className="sobre__text">
               Realizamos visitas quinzenais para acompanhamento in loco e montamos um cardápio flexível conforme as preferências da sua equipe. Para eventos, inaugurações ou datas comemorativas, também estamos prontos.
             </p>
             <div className="metricas">
               <div className="metrica fade-in-up" style={{ transitionDelay: '100ms' }}>
-                <span className="metrica__numero">50+</span>
+                <span className="metrica__numero">30+</span>
                 <span className="metrica__label">refeições/dia mínimo</span>
               </div>
               <div className="metrica fade-in-up" style={{ transitionDelay: '200ms' }}>
