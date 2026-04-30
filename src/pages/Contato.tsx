@@ -78,7 +78,7 @@ function ContatoForm() {
                 { icon: 'fa-solid fa-phone', label: 'Telefone', value: '(47) 99626-6842', href: 'tel:+5547996266842', static: false },
                 { icon: 'fa-solid fa-envelope', label: 'E-mail', value: 'contato@mangiarefeicoes.com.br', href: 'mailto:contato@mangiarefeicoes.com.br', static: false },
                 { icon: 'fa-brands fa-instagram', label: 'Instagram', value: '@mangiare.refeicoes', href: 'https://instagram.com/mangiare.refeicoes', static: false },
-                { icon: 'fa-solid fa-location-dot', label: 'Endereço', value: 'R. Minas Gerais, 5300, Morro do Meio, Joinville – SC', href: null, static: true },
+                { icon: 'fa-solid fa-location-dot', label: 'Endereço', value: 'R. Luísa Deranhóli Koschnik, 731 - Aventureiro, Joinville - SC, 89225-570', href: null, static: true },
               ].map((c, i) =>
                 c.static ? (
                   <div key={i} className="contato-info-item contato-info-item--static">
@@ -101,7 +101,7 @@ function ContatoForm() {
             </div>
             <div className="contato-map-embed">
               <iframe
-                src="https://maps.google.com/maps?q=R.+Minas+Gerais,+5300,+Morro+do+Meio,+Joinville,+SC,+Brasil&output=embed&hl=pt-BR&z=16"
+               src="https://maps.google.com/maps?q=R.+Lu%C3%ADsa+Deranh%C3%B3li+Koschnik,+731,+Aventureiro,+Joinville,+SC,+Brasil&output=embed&hl=pt-BR&z=16"
                 title="Localização Mangiare Refeições"
                 allowFullScreen
                 loading="lazy"
@@ -186,7 +186,7 @@ function LocalizacaoSection() {
             <h3 className="section-title section-title--creme" style={{ fontSize: 22, marginBottom: 20 }}>Cozinha industrial Mangiare</h3>
             <div className="localizacao__info-list">
               {[
-                { icon: 'fa-solid fa-location-dot', label: 'Endereço', value: <>R. Minas Gerais, 5300<br />Morro do Meio, Joinville – SC<br />CEP: 89.222-280</> },
+                { icon: 'fa-solid fa-location-dot', label: 'Endereço', value: <>R. Luísa Deranhóli Koschnik, 731<br />Aventureiro, Joinville - SC<br />CEP: 89.225-570</> },
                 { icon: 'fa-solid fa-map', label: 'Área de atendimento', value: 'Joinville e municípios da região norte de Santa Catarina. Entre em contato para verificar disponibilidade.' },
                 { icon: 'fa-solid fa-car', label: 'Como chegar', value: 'Estacionamento próprio disponível para visitas. Atendimentos presenciais mediante agendamento.' },
               ].map((item, i) => (
@@ -203,7 +203,7 @@ function LocalizacaoSection() {
           <div className="localizacao__map fade-in-up" style={{ transitionDelay: '100ms' }}>
             <div className="localizacao__map-inner">
               <i className="fa-solid fa-map-location-dot localizacao__map-icon" />
-              <p className="localizacao__map-text">R. Minas Gerais, 5300<br />Morro do Meio — Joinville, SC</p>
+              <p className="localizacao__map-text">R. Luísa Deranhóli Koschnik, 731<br />Aventureiro, Joinville - SC</p>
             </div>
           </div>
         </div>
