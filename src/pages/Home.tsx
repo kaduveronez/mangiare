@@ -323,7 +323,7 @@ function FormularioContato() {
                 <span className="contato__icon"><i className="fa-brands fa-instagram" /></span><span className="contato__info">@mangiare.refeicoes</span>
               </a>
               <div className="contato__item">
-                <span className="contato__icon"><i className="fa-solid fa-location-dot" /></span><span className="contato__info">R. Minas Gerais, 5300, Morro do Meio, Joinville - SC</span>
+                <span className="contato__icon"><i className="fa-solid fa-location-dot" /></span><span className="contato__info">R. Luísa Deranhóli Koschnik, 731 - Aventureiro, Joinville - SC, 89225-570</span>
               </div>
             </div>
             <div className="contato__map">
