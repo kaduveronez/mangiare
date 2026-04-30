@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useFadeInUp } from '../hooks/useIntersectionObserver';
 import PageHero from '../components/PageHero';
 import fotoEquipe from '../assets/foto-equipe.jpg';
+import fotoSterNutri from '../assets/foto-ster-nutricionista.jpg';
 import fotoCozinha from '../assets/foto-cozinha.jpg';
 import fotoPreparo from '../assets/foto-preparo.jpg';
 import fotoEntrega from '../assets/foto-entrega.jpg';
@@ -28,12 +29,12 @@ function Historia() {
               Esse princípio não mudou. O que mudou foi a escala: hoje entregamos centenas de refeições por dia para empresas de Joinville e região, com a mesma atenção ao detalhe que caracterizava cada prato nos primeiros anos.
             </p>
             <p className="sobre__text">
-              Somos uma referência não porque nos autoproclamamos — mas porque clientes renovam contrato ano após ano. Porque gestores de RH nos indicam para outros gestores. Porque colaboradores sentem a diferença no prato.
+              Somos referência porque oferecemos comida de verdade, que torna não só mais um prato, mas uma experiência para cada cliente. Servimos como se cada um fizesse parte da nossa família: Mangiare.
             </p>
             <span className="sobre__badge">30+ anos de experiência</span>
           </div>
           <div className="fade-in-up" style={{ transitionDelay: '100ms' }}>
-            <img src={fotoEquipe} alt="Equipe Mangiare Refeições na cozinha industrial" className="sobre__image" loading="lazy" width={960} height={720} />
+            <img src={fotoSterNutri} alt="Ster, proprietária da Mangiare, ao lado da nutricionista" className="sobre__image" loading="lazy" width={960} height={720} />
           </div>
         </div>
       </div>

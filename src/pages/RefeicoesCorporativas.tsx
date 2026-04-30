@@ -20,13 +20,13 @@ function ArgumentoB2B() {
           <div className="fade-in-up" style={{ maxWidth: 800 }}>
             <h2 className="sobre__title">A alimentação corporativa que o seu RH vai querer assinar de olhos fechados</h2>
             <p className="sobre__text">
-              Gestores que já passaram por fornecedores problemáticos sabem o custo real de uma refeição ruim: reclamação coletiva, queda de moral, absenteísmo, reunião de emergência. Com a Mangiare, isso não existe — e essa é nossa promessa de há 30 anos.
+              Gestores que já passaram por fornecedores problemáticos sabem o custo real de uma refeição ruim: reclamação coletiva, queda de moral, absenteísmo, reunião de emergência.
             </p>
             <p className="sobre__text">
               Atendemos empresas de todos os portes a partir de 50 refeições por pedido. Cardápio por nutricionista, entrega diária em Hot Box com temperatura controlada, conformidade total com normas sanitárias e um ponto de contato único para tudo. O seu trabalho é gerir pessoas — o nosso é garantir que elas almocem bem.
             </p>
             <p className="sobre__text">
-              Realizamos visitas quinzenais para acompanhamento in loco e adaptamos o cardápio sem custo adicional conforme as preferências da sua equipe. Para eventos, inaugurações ou datas comemorativas, também estamos prontos.
+              Realizamos visitas quinzenais para acompanhamento in loco e montamos um cardápio flexível conforme as preferências da sua equipe. Para eventos, inaugurações ou datas comemorativas, também estamos prontos.
             </p>
             <div className="metricas">
               <div className="metrica fade-in-up" style={{ transitionDelay: '100ms' }}>
@@ -141,9 +141,9 @@ function FAQ() {
   const ref = useFadeInUp<HTMLDivElement>();
   const [aberto, setAberto] = useState<number | null>(null);
   const perguntas = [
-    { q: 'A Mangiare atende empresas de qualquer porte?', r: 'Sim. Atendemos desde pequenas empresas com 50 colaboradores até grandes indústrias. O cardápio e a logística são adaptados ao volume e às necessidades de cada cliente.' },
-    { q: 'É possível ter opções para colaboradores com restrições alimentares?', r: 'Sim! Nossa nutricionista elabora cardápios que contemplam opções sem glúten, vegetarianas e outras restrições alimentares. Basta nos informar as necessidades da sua equipe.' },
-    { q: 'Vocês fornecem louças e utensílios?', r: 'Fornecemos as refeições em marmitas individuais ou travessas coletivas, conforme a preferência do cliente. Louças e utensílios são responsabilidade do contratante.' },
+    { q: 'A Mangiare atende empresas de qualquer porte?', r: 'Sim. Atendemos desde pequenas empresas com 30 colaboradores até grandes indústrias. O cardápio e a logística são adaptados ao volume e às necessidades de cada cliente.' },
+    { q: 'Oferecem copeira para servir as refeições?', r: 'Sim, oferecemos copeiras treinadas e responsáveis para cuidarem de refeitórios a partir de 50 pessoas.' },
+    { q: 'Vocês fornecem louças e utensílios?', r: 'Sim, montamos todo seu refeitório, desde buffet, pratos, talheres, suqueiras... Isso é por nossa conta.' },
     { q: 'Qual o prazo para início do fornecimento após o contrato?', r: 'Em geral, iniciamos o fornecimento em até 5 dias úteis após a assinatura do contrato, necessários para adequar o cardápio e o planejamento logístico.' },
     { q: 'Como é feito o controle de qualidade das refeições?', r: 'Nossa nutricionista realiza visitas quinzenais ao local de consumo para avaliar aceitação e coletar feedbacks. Internamente, monitoramos temperatura, validade e condições de higiene em todas as etapas.' },
   ];
